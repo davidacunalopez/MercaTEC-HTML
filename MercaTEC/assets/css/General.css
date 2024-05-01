@@ -1,0 +1,55 @@
+.navbar {
+  background: #F4F4F4;
+}
+
+.search-bar {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 150px;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 6px;
+  border: solid 1px #dcdcdc;
+  border-right: none;
+  border-radius: 6px;
+  border-top-right-radius: initial;
+  border-bottom-right-radius: initial;
+}
+
+.search-bar button {
+  padding: 6px;
+  background-color: white;
+  color: black;
+  border: solid 1px #dcdcdc;
+  cursor: pointer;
+  border-left: none;
+  border-top-left-radius: initial;
+  border-bottom-left-radius: initial;
+}
+
+.search-bar button i {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#btnCompra {
+  margin-right: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+body {
+  background-color: #F4F4F4;
+}
+
+#columnder {
+  background-color: white;
+}
+
+.list-group-item a:hover {
+  color: var(--bs-link-color);
+}
+

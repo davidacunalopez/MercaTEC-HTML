@@ -1,0 +1,69 @@
+function insertarCajasProductos(productos) {
+    // Encuentra el contenedor donde se insertarán las tarjetas
+    const contenedor = document.getElementById('columnder');
+  
+    // Crea un contenedor de fila
+    let fila = document.createElement('div');
+    fila.className = 'row';
+    fila.style.marginBottom = '20px';
+  
+    productos.forEach((producto, index) => {
+      // Crea la columna para la tarjeta
+      const columna = document.createElement('div');
+      columna.className = 'col-md-3'; // col-md-4 para que quepan 3 en una fila
+  
+      // Crea la tarjeta producto
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.id = index + ' card';
+    card.innerHTML = `
+      <img src="${producto.imageUrl}" alt="${producto.nombre}" class="card-img-top" style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p class="card-text">Descripción corta del producto</p>
+        <div class="card-price">Precio: <span>${producto.precio}</span></div>
+        <button class="btn btn-primary" id="btnItem" onclick="showAlert(this)">Comprar</button>
+      </div>
+    `;
+  
+      // Añade la tarjeta a la columna, y luego la columna a la fila
+      columna.appendChild(card);
+      fila.appendChild(columna);
+  
+      // Cada 3 productos, agrega la fila al contenedor y crea una nueva fila
+      if ((index + 1) % 4 === 0) {
+        contenedor.appendChild(fila);
+        fila = document.createElement('div');
+        fila.className = 'row';
+        fila.style.marginBottom = '20px';
+      }
+    });
+  
+    // Añade la última fila si no está vacía y si el número de productos no es múltiplo de 3
+    if (productos.length % 4 !== 0) {
+      contenedor.appendChild(fila);
+    }
+  }
+  
+  // Suponiendo que tienes un array de productos
+const productos = [
+    { id: 1, nombre: 'Jabón artesanal gluten-free', precio: '3000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 2, nombre: 'Producto 2', precio: '4000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 3, nombre: 'Producto 3', precio: '5000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 4, nombre: 'Producto 4', precio: '6000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 5, nombre: 'Producto 5', precio: '7000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 6, nombre: 'Producto 6', precio: '8000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 7, nombre: 'Producto 7', precio: '9000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 8, nombre: 'Producto 8', precio: '10000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 9, nombre: 'Producto 9', precio: '11000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 10, nombre: 'Producto 10', precio: '12000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' },
+    { id: 11, nombre: 'Producto 11', precio: '13000', imageUrl: 'assets/img/pexels-vikeph-19684657.jpg' }
+];
+  
+  // Ahora puedes llamar a insertarCajaProducto para cada producto
+  insertarCajasProductos(productos);
+
+function showAlert(idCard) {
+    var card = idCard.closest('.card');
+    alert(card.id);
+}

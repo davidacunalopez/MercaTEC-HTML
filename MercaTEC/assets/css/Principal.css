@@ -1,0 +1,21 @@
+.container {
+  /*margin-left: 0px;*/
+  /*margin-right: 0px;*/
+  margin: 0px;
+  /*border-style: solid;*/
+  /*width: 100%;*/
+  /*box-sizing: initial;*/
+  display: inline;
+}
+
+#columnizq {
+  margin-left: 20px;
+  background-color: #F4F4F4;
+  height: 100vh;
+}
+
+.list-group-item a {
+  color: inherit;
+  text-decoration: none;
+}
+

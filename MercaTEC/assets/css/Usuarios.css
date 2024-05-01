@@ -1,0 +1,36 @@
+#Perfil .img {
+  border-radius: 12px;
+}
+
+#containerPerfil {
+  padding-top: 50px;
+  padding-left: 50px;
+  display: flex;
+  margin-left: 0px;
+  padding-bottom: 50px;
+}
+
+#containerPerfil img {
+  border-radius: 200px;
+}
+
+.form-label {
+  display: block;
+}
+
+.btn {
+  background-color: inherit;
+  color: #000000;
+  border-color: initial;
+  margin-left: auto;
+}
+
+#labels_name_bio {
+  padding-left: 20px;
+}
+
+div a {
+  color: inherit;
+  text-decoration: none;
+}
+

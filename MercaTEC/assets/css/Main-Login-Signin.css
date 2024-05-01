@@ -1,0 +1,31 @@
+/* CSS Guarda solo los estilos de las pantallas iniciales: Main, LogIN, SignIn */
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar button {
+  background-color: inherit;
+  color: black;
+  border-color: #000000;
+  margin-inline: 5px;
+}
+
+footer {
+  background: #002855;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+footer a {
+  color: #ffffff;
+}
+
