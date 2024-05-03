@@ -41,7 +41,7 @@ function cargarDatos(){
                     card.className = 'card';
                     card.style.height = '100%';
                     card.style.width = '100%';
-                    card.id = item.idProducto + '-' + item.idUsuario; //ASIGNA EL ID DE LA TARJETA -> (idProducto-idUsuario)
+                    card.id = item.idProducto + '-' + item.idUsuario + '-p'; //ASIGNA EL ID DE LA TARJETA -> (idProducto-idUsuario)
                     card.innerHTML = `
                         <img src="${item.imgProducto}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                         
@@ -102,7 +102,7 @@ function insertarCajasServicios(contenedor, fila, cont) {
                     card.className = 'card';
                     card.style.height = '100%';
                     card.style.width = 'auto';
-                    card.id = item.idServicio + '-' + item.idUsuario; //ASIGNA EL ID DE LA TARJETA -> (idServicio-idUsuario)
+                    card.id = item.idServicio + '-' + item.idUsuario + '-s'; //ASIGNA EL ID DE LA TARJETA -> (idServicio-idUsuario)
                     card.innerHTML = `
                         <img src="${item.imgServicio}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                         
@@ -137,27 +137,69 @@ function insertarCajasServicios(contenedor, fila, cont) {
                         fila.style.marginBottom = '20px';
                     }
                 }
-            });
+        });
+
+        // Añade la última fila si no está vacía
+        if (cont % 4 !== 0) {
+            contenedor.appendChild(fila);
+        }
+        
     }).catch(error => console.error('Error:', error));
-    // Añade la última fila si no está vacía
-    if (cont % 4 !== 0) {
-        contenedor.appendChild(fila);
-    }
 }
 
 function funcionEditar(elemento){
     alert('Editar')
-    var idProducto = elemento.card.id.split('-')[0];
-    var idUsuario = elemento.card.id.split('-')[1];
-    localStorage.setItem('idProducto', idProducto);
-    localStorage.setItem('idUsuario', idUsuario);
-    window.location.href = '';
+    var idCard = elemento.card.id;
+    if(idCard.split('-')[2] === 'p'){
+        localStorage.setItem('p_idProducto', idCard.split('-')[0]);
+        window.location.href = '';
+    }else{
+        localStorage.setItem('s_idServicio', idCard.split('-')[0]);
+        window.location.href = '';
+    }
 };
 
 function funcionEliminar(elemento){
-    var idProducto = elemento.card.id.split('-')[0];
-    var idUsuario = elemento.card.id.split('-')[1];
-    localStorage.setItem('idProducto', idProducto);
-    localStorage.setItem('idUsuario', idUsuario);
-    window.location.href = '';
+    alert('Eliminar')
+    var card = elemento.closest('.card')
+    var idCard = card.id;
+    if(idCard.split('-')[2] === 'p'){
+        if (confirm('¿Está seguro de eliminar este producto?')) {
+            fetch(`http://localhost:3000/deleteProducto/${idCard.split('-')[0]}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'Producto eliminado correctamente.') {
+                    alert('Producto eliminado con éxito');
+                    window.location.href = '';
+                } else {
+                    alert('No se pudo eliminar el producto.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al eliminar producto.');
+            });
+        }
+    }else{
+        if (confirm('¿Está seguro de eliminar este servicio?')) {
+            fetch(`http://localhost:3000/deleteServicio/${idCard.split('-')[0]}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'Servicio eliminado correctamente.') {
+                    alert('Servicio eliminado con éxito');
+                    window.location.href = '';
+                } else {
+                    alert('No se pudo eliminar el servicio.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al eliminar servicio.');
+            });
+        }
+    }
 };

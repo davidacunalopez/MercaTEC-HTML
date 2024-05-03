@@ -22,7 +22,7 @@ function insertarCajasProductos() {
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.style.height = '100%';
-                card.id = item.idProducto + '-' + item.idUsuario; //ASIGNA EL ID DE LA TARJETA -> (idProducto-idUsuario)
+                card.id = item.idProducto + '-' + item.idUsuario + '-p'; //ASIGNA EL ID DE LA TARJETA -> (idProducto-idUsuario-p)
                 card.innerHTML = `
                     <img src="${item.imgProducto}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                     
@@ -37,7 +37,7 @@ function insertarCajasProductos() {
                             
                         </div>
                         <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center" style="margin-top: 10px">
-                            <button class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;" onclick="sayHello(this)">Comprar</button>
+                            <button class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;" onclick="Comprar(this)">Comprar</button>
                             <div class="card-price"><span>₡${item.precio}</span></div>
                         </div>
                     </div>
@@ -61,12 +61,12 @@ function insertarCajasProductos() {
 }
 
 function insertarCajasServicios(contenedor, fila, cont) {
+    var cont2 = cont;
     fetch('http://localhost:3000/getServicios')
         .then(response => response.json())
         .then(data => {
-            
             data.forEach((item, index) => {
-                cont++;
+                cont2++;
                 // Crea la columna para la tarjeta
                 const columna = document.createElement('div');
                 columna.className = 'col-md-3'; // col-md-3 para que quepan 4 en una fila
@@ -75,7 +75,7 @@ function insertarCajasServicios(contenedor, fila, cont) {
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.style.height = '100%';
-                card.id = item.idServicio + '-' + item.idUsuario; //ASIGNA EL ID DE LA TARJETA -> (idServicio-idUsuario)
+                card.id = item.idServicio + '-' + item.idUsuario + '-s'; //ASIGNA EL ID DE LA TARJETA -> (idServicio-idUsuario)
                 card.innerHTML = `
                     <img src="${item.imgServicio}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                     
@@ -90,7 +90,7 @@ function insertarCajasServicios(contenedor, fila, cont) {
                             
                         </div>
                         <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center" style="margin-top: 10px">
-                            <button class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;" onclick="sayHello(this)">Comprar</button>
+                            <button class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;" onclick="Comprar(this)">Comprar</button>
                             <div class="card-price"><span>₡${item.precio}</span></div>
                         </div>
                     </div>
@@ -101,19 +101,21 @@ function insertarCajasServicios(contenedor, fila, cont) {
                 fila.appendChild(columna);
             
                 // Cada 3 productos, agrega la fila al contenedor y crea una nueva fila
-                if (cont % 4 === 0) {
+                if (cont2 % 4 === 0) {
                     contenedor.appendChild(fila);
                     fila = document.createElement('div');
                     fila.className = 'row';
                     fila.style.marginBottom = '20px';
                 }
             });
+            
+            // Añade la última fila si no está vacía con productos o servicios
+            if (cont2 % 4 !== 0) {
+                contenedor.appendChild(fila);
+            }
     })
     .catch(error => console.error('Error:', error));
-    // Añade la última fila si no está vacía con productos o servicios
-    if (cont % 4 !== 0) {
-        contenedor.appendChild(fila);
-    }
+    
 }
 
 insertarCajasProductos();
@@ -130,6 +132,7 @@ function clickEnFotoDePerfil(event, elemento){
     var cardId = card.id;
     var idProducto = cardId.split('-')[0];
     var idUsuario = cardId.split('-')[1];
+    alert(cardId);
     fetch('http://localhost:3000/getUsuarios')
         .then(response => response.json())
         .then(data => {
@@ -150,3 +153,45 @@ function clickEnFotoDePerfil(event, elemento){
         .catch(error => console.error('Error:', error));
 }
 
+
+//funcion para comprar un producto o servicio del BUTTON comprar
+function Comprar(elemento){
+    var card = elemento.closest('.card');
+    var cardId = card.id;
+    if(cardId.split('-')[2] === 'p'){ //Si es un producto, se guarda en el localStorage los datos del producto
+        //Buscar el producto seleccionado
+        fetch('http://localhost:3000/getProductos')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(item => {
+                if(item.idProducto+'' === cardId.split('-')[0]){
+                    localStorage.setItem( 'p_idProducto', item.idProducto);
+                    localStorage.setItem( 'p_idUsuario', item.idUsuario);
+                    localStorage.setItem( 'p_nombreProducto', item.nombreProducto);
+                    localStorage.setItem( 'p_descripcion', item.descripcion);
+                    localStorage.setItem( 'p_precio', item.precio);
+                    localStorage.setItem( 'p_imgProducto', item.imgProducto);
+                    window.location.href = '';
+                    return;
+                }
+            });
+        })
+    }else{ //Si es un servicio, se guarda en el localStorage los datos del servicio
+        fetch('http://localhost:3000/getServicios')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(item => {
+                if(item.idServicio+'' === cardId.split('-')[0]){
+                    localStorage.setItem( 's_idServicio', item.idServicio);
+                    localStorage.setItem( 's_idUsuario', item.idUsuario);
+                    localStorage.setItem( 's_nombreServicio', item.nombreServicio);
+                    localStorage.setItem( 's_descripcion', item.descripcion);
+                    localStorage.setItem( 's_precio', item.precio);
+                    localStorage.setItem( 's_imgServicio', item.imgServicio);
+                    window.location.href = '';
+                    return;
+                }
+            });
+        })
+    }
+}

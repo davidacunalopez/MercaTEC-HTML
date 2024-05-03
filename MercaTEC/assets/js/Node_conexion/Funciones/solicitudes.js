@@ -78,4 +78,49 @@ router.post('/setUsuario', async (req, res) => {
         res.status(500).send('Error al registrar el usuario');
     }
 });
+
+
+//--------------------------DELETES--------------------------
+router.delete('/deleteProducto/:idProducto', async (req, res) => {
+    const { idProducto } = req.params; // Obtiene el idProducto desde el parámetro URL
+    const pool = await getConnection();
+
+    try {
+        const result = await pool.request()
+            .input('idProducto', sql.Int, idProducto) // Asegúrate de que el tipo de dato corresponda al tipo en tu base de datos
+            .query('DELETE FROM dbo.Productos WHERE idProducto = @idProducto');
+
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).send('Producto eliminado correctamente.');
+        } else {
+            res.status(404).send('Producto no encontrado.');
+        }
+    } catch (error) {
+        console.error('Error al eliminar el producto:', error);
+        res.status(500).send('Error al eliminar el producto');
+    }
+});
+
+
+router.delete('/deleteServicio/:idServicio', async (req, res) => {
+    const { idServicio } = req.params; // Obtiene el idServicio desde el parámetro URL
+    const pool = await getConnection();
+
+    try {
+        const result = await pool.request()
+            .input('idServicio', sql.Int, idServicio) // Asegúrate de que el tipo de dato corresponda al tipo en tu base de datos
+            .query('DELETE FROM dbo.Servicios WHERE idServicio = @idServicio');
+
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).send('Servicio eliminado correctamente.');
+        } else {
+            res.status(404).send('Servicio no encontrado.');
+        }
+    } catch (error) {
+        console.error('Error al eliminar el servicio:', error);
+        res.status(500).send('Error al eliminar el servicio');
+    }
+});
+
+
 module.exports = router;
