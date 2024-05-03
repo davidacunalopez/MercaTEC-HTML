@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     localStorage.setItem( 'numero', item.numero);
                     localStorage.setItem( 'biografia', item.biografia);
                     localStorage.setItem( 'imgURL', item.imgURL);
+                    localStorage.setItem( 'contrasenna', item.contrasenna);
                     console.log(item.imgURL);
                     return;
                 }

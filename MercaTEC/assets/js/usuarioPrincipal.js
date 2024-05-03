@@ -203,3 +203,11 @@ function funcionEliminar(elemento){
         }
     }
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+    const btnEditarInfo = document.getElementById('btnEditarInformacion');
+    btnEditarInfo.addEventListener('click', function (event) {
+        event.preventDefault();
+        window.location.href = 'Editar usuario principal.html';
+    });
+});
