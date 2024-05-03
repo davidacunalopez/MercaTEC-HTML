@@ -30,15 +30,21 @@ router.post('/registrar', async (req, res) => {
 //--------------------------GETS--------------------------
 router.get('/getUsuarios', async (req, res) => {
     const pool = await getConnection();
-    const result = await pool.request().query('SELECT idUsuario, nombre, apellidos, correo, numero, biografia, fechaDeRegistro, contrasenna FROM dbo.Usuarios');
+    const result = await pool.request().query('SELECT idUsuario, nombre, apellidos, correo, numero, biografia, fechaDeRegistro, contrasenna, imgURL FROM dbo.Usuarios');
     res.json(result.recordset);
 });
 
 router.get('/getProductos', async (req, res) => {
     const pool = await getConnection();
-    const result = await pool.request().query('SELECT idProducto, idUsuario, idCategoria, nombre, descripcion, precio, cantidad, imgURL FROM dbo.Productos');
-    res.json(result.recordset);
+    try {
+        const result = await pool.request().execute('getProductos');  // Cambio aquí para usar execute y el nombre del procedimiento almacenado
+        res.json(result.recordset);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error en la ejecución del procedimiento almacenado');
+    }
 });
+
 
 router.get('/getServicios', async (req, res) => {
     const pool = await getConnection();

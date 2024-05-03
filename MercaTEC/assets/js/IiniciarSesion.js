@@ -22,6 +22,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     //alert('Inicio de sesión exitoso.');
                     window.location.href = './Principal.html';
                     encontrado = true;
+
+                    //Se establecen los datos del usuario globalmente
+                    localStorage.setItem( 'idUsuario', item.idUsuario);
+                    localStorage.setItem( 'nombre', item.nombre);
+                    localStorage.setItem( 'apellidos', item.apellidos);
+                    localStorage.setItem( 'correo', item.correo);
+                    localStorage.setItem( 'numero', item.numero);
+                    localStorage.setItem( 'biografia', item.biografia);
+                    localStorage.setItem( 'imgURL', item.imgURL);
+                    console.log(item.imgURL);
+                    return;
                 }
             });
             if(!encontrado){

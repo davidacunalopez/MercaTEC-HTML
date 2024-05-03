@@ -21,8 +21,8 @@
     </nav>
     <main>
         <div class="container-fluid" id="containerPerfil">
-            <div id="Perfil"><img width="200" height="200" style="width: 200px;height: 200px;" src="assets/img/clipboard-image-2.png"></div>
-            <div id="labels_name_bio"><label class="form-label fs-3 fw-semibold" id="lblNombre">Nombre</label><label class="form-label fs-6 fw-bolder">Biografía:</label><label class="form-label fs-6" id="lblBiografia">Sin biografía.</label></div><button class="btn btn-primary" type="button" style="border-bottom-width: 100%;height: 100%;margin-right: 20px;width: 171px;"><i class="fas fa-edit" style="font-size: 18px;"></i>Editar información</button>
+            <div id="Perfil"><img id="imgPerfil" width="200" height="200" style="width: 200px;height: 200px;"></div>
+            <div id="labels_name_bio"><label class="form-label fs-3 fw-semibold" id="lblNombre">Nombre</label><label class="form-label fs-6 fw-bolder">Biografía:</label><label class="form-label fs-6" id="lblBiografia">Sin biografía.</label></div><button class="btn btn-primary" type="button" id="btnEditarInformacion" style="border-bottom-width: 100%;height: 100%;margin-right: 20px;width: 171px;"><i class="fas fa-edit" style="font-size: 18px;"></i>Editar información</button>
         </div>
     </main>
     <div class="text-start d-flex">
@@ -126,7 +126,7 @@
     </div>
     <div class="container" id="mostrador"></div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/IiniciarSesion.js"></script>
+    <script type ="module" src="assets/js/usuarioPrincipal.js"></script>
 </body>
 
 </html>
