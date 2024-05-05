@@ -81,9 +81,6 @@ function cargarDatos(){
     .catch(error => console.error('Error:', error));
 };
 
-
-cargarDatos();
-
 function insertarCajasServicios(contenedor, fila, cont) {
     fetch('http://localhost:3000/getServicios')
         .then(response => response.json())
@@ -147,6 +144,8 @@ function insertarCajasServicios(contenedor, fila, cont) {
     }).catch(error => console.error('Error:', error));
 }
 
+cargarDatos();
+
 function funcionEditar(elemento){
     alert('Editar')
     var idCard = elemento.card.id;
@@ -206,8 +205,14 @@ function funcionEliminar(elemento){
 
 document.addEventListener('DOMContentLoaded', function () {
     const btnEditarInfo = document.getElementById('btnEditarInformacion');
+    const btnSalirSesion = document.getElementById('btnSalirSesion');
     btnEditarInfo.addEventListener('click', function (event) {
         event.preventDefault();
         window.location.href = 'Editar usuario principal.html';
+    });
+    btnSalirSesion.addEventListener('click', function (event) {
+        event.preventDefault();
+        localStorage.clear();
+        window.location.href='index.html';
     });
 });

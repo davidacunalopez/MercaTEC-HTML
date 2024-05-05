@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     encontrado = true;
 
                     //Se establecen los datos del usuario globalmente
+                    alert(item.idUsuario);
                     localStorage.setItem( 'idUsuario', item.idUsuario);
                     localStorage.setItem( 'nombre', item.nombre);
                     localStorage.setItem( 'apellidos', item.apellidos);
