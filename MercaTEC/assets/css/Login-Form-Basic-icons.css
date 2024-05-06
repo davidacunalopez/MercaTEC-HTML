@@ -1,3 +1,7 @@
+.navbar img{
+  border-radius: 15px;
+}
+
 .bs-icon {
   --bs-icon-size: .75rem;
   display: flex;

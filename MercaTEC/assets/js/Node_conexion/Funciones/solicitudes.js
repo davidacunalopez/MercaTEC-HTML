@@ -34,6 +34,100 @@ router.get('/getUsuarios', async (req, res) => {
     res.json(result.recordset);
 });
 
+router.get('/getTransaccionesProductosPorComprador', async (req, res) => {
+    const pool = await getConnection();
+    try {
+        // Obtener el idComprador de la consulta
+        const idComprador = req.query.idComprador;
+
+        // Verificar si el idComprador se ha proporcionado
+        if (!idComprador) {
+            return res.status(400).send('El idComprador es necesario para la consulta');
+        }
+
+        // Ejecutar el procedimiento almacenado pasando el idComprador como parámetro
+        const result = await pool.request()
+                                  .input('idComprador', sql.Int, idComprador)
+                                  .execute('getTransaccionesProductosPorComprador');
+
+        res.json(result.recordset);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error en la ejecución del procedimiento almacenado');
+    }
+});
+
+router.get('/getTransaccionesProductosPorVendedor', async (req, res) => {
+    const pool = await getConnection();
+    try {
+        // Obtener el idVendedor de la consulta
+        const idVendedor = req.query.idVendedor;
+
+        // Verificar si el idVendedor se ha proporcionado
+        if (!idVendedor) {
+            return res.status(400).send('El idVendedor es necesario para la consulta');
+        }
+
+        // Ejecutar el procedimiento almacenado pasando el idVendedor como parámetro
+        const result = await pool.request()
+                                  .input('idVendedor', sql.Int, idVendedor)
+                                  .execute('getTransaccionesProductosPorVendedor');
+
+        res.json(result.recordset);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error en la ejecución del procedimiento almacenado');
+    }
+});
+
+
+router.get('/getTransaccionesServiciosPorComprador', async (req, res) => {
+    const pool = await getConnection();
+    try {
+        // Obtener el idComprador de la consulta
+        const idComprador = req.query.idComprador;
+
+        // Verificar si el idComprador se ha proporcionado
+        if (!idComprador) {
+            return res.status(400).send('El idComprador es necesario para la consulta');
+        }
+
+        // Ejecutar el procedimiento almacenado pasando el idComprador como parámetro
+        const result = await pool.request()
+                                  .input('idComprador', sql.Int, idComprador)
+                                  .execute('getTransaccionesServiciosPorComprador');
+
+        res.json(result.recordset);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error en la ejecución del procedimiento almacenado');
+    }
+});
+
+router.get('/getTransaccionesServiciosPorVendedor', async (req, res) => {
+    const pool = await getConnection();
+    try {
+        // Obtener el idVendedor de la consulta
+        const idVendedor = req.query.idVendedor;
+
+        // Verificar si el idVendedor se ha proporcionado
+        if (!idVendedor) {
+            return res.status(400).send('El idVendedor es necesario para la consulta');
+        }
+
+        // Ejecutar el procedimiento almacenado pasando el idVendedor como parámetro
+        const result = await pool.request()
+                                  .input('idVendedor', sql.Int, idVendedor)
+                                  .execute('getTransaccionesServiciosPorVendedor');
+
+        res.json(result.recordset);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error en la ejecución del procedimiento almacenado');
+    }
+});
+
+
 router.get('/getProductos', async (req, res) => {
     const pool = await getConnection();
     try {

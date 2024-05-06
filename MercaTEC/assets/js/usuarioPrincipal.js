@@ -231,3 +231,13 @@ function setAltoContraste(){
     stylesheet.disabled = !stylesheet.disabled;
     localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
 };
+
+function historialCompras(event){
+    event.preventDefault();
+    window.location.href = 'HistorialCompra.html';
+};
+
+function historialVentas(event){
+    event.preventDefault();
+    window.location.href = 'HistorialVenta.html';
+};

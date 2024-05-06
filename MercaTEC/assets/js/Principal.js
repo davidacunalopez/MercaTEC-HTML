@@ -174,18 +174,20 @@ function Comprar(elemento){
         .then(response => response.json())
         .then(data => {
             data.forEach(item => {
-                if(item.idProducto+'' === cardId.split('-')[0]){
-                    localStorage.setItem( 'esPoS', 'p');
-                    localStorage.setItem( 'IDUSUARIO', item.idUsuario);
-                    localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
-                    localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
-                    localStorage.setItem( 'IDPS', item.idProducto);
-                    localStorage.setItem( 'NOMBREPS', item.nombreProducto);
-                    localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
-                    localStorage.setItem( 'PRECIOPS', item.precio);
-                    localStorage.setItem( 'IMGPS', item.imgProducto);
-                    window.location.href = 'InfoProducto.html';
-                    return;
+                if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
+                    if(item.idProducto+'' === cardId.split('-')[0]){
+                        localStorage.setItem( 'esPoS', 'p');
+                        localStorage.setItem( 'IDUSUARIO', item.idUsuario);
+                        localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
+                        localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
+                        localStorage.setItem( 'IDPS', item.idProducto);
+                        localStorage.setItem( 'NOMBREPS', item.nombreProducto);
+                        localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
+                        localStorage.setItem( 'PRECIOPS', item.precio);
+                        localStorage.setItem( 'IMGPS', item.imgProducto);
+                        window.location.href = 'InfoProducto.html';
+                        return;
+                    }
                 }
             });
         })
@@ -194,18 +196,20 @@ function Comprar(elemento){
         .then(response => response.json())
         .then(data => {
             data.forEach(item => {
-                if(item.idServicio+'' === cardId.split('-')[0]){
-                    localStorage.setItem( 'esPoS', 's');
-                    localStorage.setItem( 'IDUSUARIO', item.idUsuario);
-                    localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
-                    localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
-                    localStorage.setItem( 'IDPS', item.idProducto);
-                    localStorage.setItem( 'NOMBREPS', item.nombreProducto);
-                    localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
-                    localStorage.setItem( 'PRECIOPS', item.precio);
-                    localStorage.setItem( 'IMGPS', item.imgProducto);
-                    window.location.href = 'InfoProducto.html';
-                    return;
+                if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
+                    if(item.idServicio+'' === cardId.split('-')[0]){
+                        localStorage.setItem( 'esPoS', 's');
+                        localStorage.setItem( 'IDUSUARIO', item.idUsuario);
+                        localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
+                        localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
+                        localStorage.setItem( 'IDPS', item.idProducto);
+                        localStorage.setItem( 'NOMBREPS', item.nombreProducto);
+                        localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
+                        localStorage.setItem( 'PRECIOPS', item.precio);
+                        localStorage.setItem( 'IMGPS', item.imgProducto);
+                        window.location.href = 'InfoProducto.html';
+                        return;
+                    }
                 }
             });
         })

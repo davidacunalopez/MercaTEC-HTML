@@ -24,28 +24,43 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if(edContrasenna.value !== edConContrasenna.value){
         alert('Las contraseñas no coinciden.');
     }else{
-      fetch('http://localhost:3000/setUsuario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          nombre: edNombre.value,
-          apellidos: edApellidos.value,
-          correo: edCorreo.value,
-          numero: edNumero.value,
-          contrasenna: edContrasenna.value
-        })
-      })
-      .then(response => response.text())
+      fetch('http://localhost:3000/getUsuarios')
+      .then(response => response.json())
       .then(data => {
-        alert('Registro completado con éxito');
-        console.log(data);
-        window.location.href = './Iniciar sesion.html';
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Error al registrar usuario.');
+        var encontrado = false;
+        data.forEach(item => {
+          if(item.correo === edCorreo.value){
+            console.log(item.correo);
+            alert('Correo ya registrado.');
+            encontrado = true;
+            return;
+          }
+        });
+        if(!encontrado){
+          fetch('http://localhost:3000/setUsuario', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              nombre: edNombre.value,
+              apellidos: edApellidos.value,
+              correo: edCorreo.value,
+              numero: edNumero.value,
+              contrasenna: edContrasenna.value
+            })
+          })
+          .then(response => response.text())
+          .then(data => {
+            alert('Registro completado con éxito');
+            console.log(data);
+            window.location.href = './Iniciar sesion.html';
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Error al registrar usuario.');
+          });
+        }
       });
     }
   });
@@ -69,3 +84,7 @@ function cargarDatos() {
 }
 
 cargarDatos();
+
+function iniciarSesion(){
+  window.location.href = 'Iniciar sesion.html';
+}

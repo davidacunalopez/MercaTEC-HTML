@@ -24,3 +24,11 @@ function cargarDatos() {
 }
 
 cargarDatos();
+
+function iniciarSesion(){
+    window.location.href = "Iniciar sesion.html";
+};
+
+function registrarse(){
+    window.location.href = "Registrarse.html";
+};

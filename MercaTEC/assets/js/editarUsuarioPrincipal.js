@@ -68,8 +68,9 @@ function cargarDatos(){
     document.getElementById('surname').value = localStorage.getItem('apellidos');
     document.getElementById('number').value = localStorage.getItem('numero');
     document.getElementById('biography').value = localStorage.getItem('biografia');
-    document.getElementById('contrasenna').value = localStorage.getItem('contrasenna');
+    document.getElementById('password').value = localStorage.getItem('contrasenna');
     document.getElementById('confirm-password').value = localStorage.getItem('contrasenna');
+    document.getElementById('imgPerfil').src = localStorage.getItem('imgURL');
 
     if (localStorage.getItem('ALTOCONTRASTE') == 1) {
         var stylesheet = document.getElementById('altoContrasteCss');
