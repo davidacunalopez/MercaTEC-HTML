@@ -9,7 +9,7 @@ body, html {
 
 /* Estilos de la barra de navegación */
 .navbar {
-    background-color: #333; /* Gris oscuro */
+    background-color: #000; /* Gris oscuro */
     border-bottom: 2px solid #fff; /* Línea divisoria blanca */
 }
 
@@ -41,6 +41,8 @@ body, html {
 h1, p {
     color: #ff0; /* Amarillo para los títulos y descripciones */
 }
+
+
 
 /* Estilos para el footer */
 footer {
@@ -291,4 +293,11 @@ svg {
   .bs-icon.bs-icon-rounded, .bs-icon.bs-icon-circle {
     border: 2px solid #fff; /* Borde blanco para todos los íconos redondeados y circulares */
   }
-  
+
+  #columnizq{
+    background-color: #000;
+  }
+
+  #columnder{
+    background-color: #000;
+  }
