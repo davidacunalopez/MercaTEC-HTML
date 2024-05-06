@@ -113,6 +113,10 @@ function insertarCajasServicios(contenedor, fila, cont) {
             if (cont2 % 4 !== 0) {
                 contenedor.appendChild(fila);
             }
+
+            if(localStorage.getItem('ALTOCONTRASTE') === '1'){
+                document.getElementById('altoContrasteCss').disabled = false;
+            }
     })
     .catch(error => console.error('Error:', error));
     
