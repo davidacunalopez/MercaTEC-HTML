@@ -133,6 +133,11 @@ function insertarCajasServicios(contenedor, fila, cont) {
                         fila.className = 'row';
                         fila.style.marginBottom = '20px';
                     }
+                    
+                    if (localStorage.getItem('ALTOCONTRASTE') == 1) {
+                        var stylesheet = document.getElementById('altoContrasteCss');
+                        stylesheet.disabled = false;
+                    }
                 }
         });
 
@@ -216,3 +221,13 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href='index.html';
     });
 });
+
+function setAltoContraste(){
+    var stylesheet = document.getElementById('altoContrasteCss');
+    stylesheet.disabled = !stylesheet.disabled;
+    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
+  
+    var stylesheet = document.getElementById('altoContrasteIndexCss');
+    stylesheet.disabled = !stylesheet.disabled;
+    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
+};
