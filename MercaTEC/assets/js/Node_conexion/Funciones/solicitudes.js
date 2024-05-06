@@ -190,6 +190,21 @@ router.post('/setProducto', async (req, res) => {
         res.status(500).send('Error al registrar el usuario');
     }
 });
+router.post('/setServicio', async (req, res) => {
+    const { nombre, precio, descripcion } = req.body;
+    const pool = await getConnection();
+    try {
+        const result = await pool.request()
+            .input('nombre', sql.VarChar, nombre)
+            .input('descripcion', sql.VarChar, descripcion)
+            .input('precio', sql.Int, precio)
+            .query('INSERT INTO dbo.Servicios (nombre, descripcion, precio) VALUES (@nombre, @descripcion, @precio)');
+        res.status(201).send('Servicio registrado correctamente.');
+    } catch (error) { 
+        console.error('Error al registrar el servicio:', error);
+        res.status(500).send('Error al registrar el servicio');
+    }
+});         
 
 //--------------------------DELETES--------------------------
 router.delete('/deleteProducto/:idProducto', async (req, res) => {

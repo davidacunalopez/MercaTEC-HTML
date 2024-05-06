@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     var btnGuardar = document.getElementById('btnGuardar');
+    var btnCancelar = document.getElementById('btnCancelar');
     var ednombreProducto = document.getElementById('ednombreProducto');
     var edCantidad = document.getElementById('edCantidad');
     var edPrecio = document.getElementById('edPrecio');
     var edDescripcion = document.getElementById('edDescripcion');
   
-    btnRegistrarse.addEventListener('click', function(event) {
+    btnGuardar.addEventListener('click', function(event) {
       event.preventDefault(); // Evita que el formulario se envíe
   
       //Se valida si hay espacios vacios
@@ -41,7 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-
+  btnCancelar.addEventListener('click', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe
+    window.location.href = './Principal.html';
+  });
   function setAltoContraste(){
     var stylesheet = document.getElementById('altoContrasteCss');
     stylesheet.disabled = !stylesheet.disabled;
