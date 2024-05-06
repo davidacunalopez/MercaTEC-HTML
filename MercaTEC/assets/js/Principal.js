@@ -171,13 +171,16 @@ function Comprar(elemento){
         .then(data => {
             data.forEach(item => {
                 if(item.idProducto+'' === cardId.split('-')[0]){
-                    localStorage.setItem( 'p_idProducto', item.idProducto);
-                    localStorage.setItem( 'p_idUsuario', item.idUsuario);
-                    localStorage.setItem( 'p_nombreProducto', item.nombreProducto);
-                    localStorage.setItem( 'p_descripcion', item.descripcion);
-                    localStorage.setItem( 'p_precio', item.precio);
-                    localStorage.setItem( 'p_imgProducto', item.imgProducto);
-                    window.location.href = '';
+                    localStorage.setItem( 'esPoS', 'p');
+                    localStorage.setItem( 'IDUSUARIO', item.idUsuario);
+                    localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
+                    localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
+                    localStorage.setItem( 'IDPS', item.idProducto);
+                    localStorage.setItem( 'NOMBREPS', item.nombreProducto);
+                    localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
+                    localStorage.setItem( 'PRECIOPS', item.precio);
+                    localStorage.setItem( 'IMGPS', item.imgProducto);
+                    window.location.href = 'InfoProducto.html';
                     return;
                 }
             });
@@ -188,13 +191,16 @@ function Comprar(elemento){
         .then(data => {
             data.forEach(item => {
                 if(item.idServicio+'' === cardId.split('-')[0]){
-                    localStorage.setItem( 's_idServicio', item.idServicio);
-                    localStorage.setItem( 's_idUsuario', item.idUsuario);
-                    localStorage.setItem( 's_nombreServicio', item.nombreServicio);
-                    localStorage.setItem( 's_descripcion', item.descripcion);
-                    localStorage.setItem( 's_precio', item.precio);
-                    localStorage.setItem( 's_imgServicio', item.imgServicio);
-                    window.location.href = '';
+                    localStorage.setItem( 'esPoS', 's');
+                    localStorage.setItem( 'IDUSUARIO', item.idUsuario);
+                    localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
+                    localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
+                    localStorage.setItem( 'IDPS', item.idProducto);
+                    localStorage.setItem( 'NOMBREPS', item.nombreProducto);
+                    localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
+                    localStorage.setItem( 'PRECIOPS', item.precio);
+                    localStorage.setItem( 'IMGPS', item.imgProducto);
+                    window.location.href = 'InfoProducto.html';
                     return;
                 }
             });
