@@ -122,5 +122,32 @@ router.delete('/deleteServicio/:idServicio', async (req, res) => {
     }
 });
 
+//--------------------------PUTS(UPDATE)--------------------------
+router.put('/updateUsuario/:idUsuario', async (req, res) => {
+    const { idUsuario } = req.params;
+    const { nombre, apellidos, numero, biografia, contrasenna} = req.body; // Asumimos que la biografía se puede actualizar aunque no estaba en el original.
+    const pool = await getConnection();
+
+    try {
+        const result = await pool.request()
+            .input('idUsuario', sql.Int, idUsuario)
+            .input('nombre', sql.VarChar, nombre)
+            .input('apellidos', sql.VarChar, apellidos)
+            .input('numero', sql.Int, numero)
+            .input('biografia', sql.VarChar, biografia) // Asumiendo que 'biografia' es un campo existente en la base de datos.
+            .input('contrasenna', sql.VarChar, contrasenna)
+            .query('UPDATE dbo.Usuarios SET nombre = @nombre, apellidos = @apellidos, numero = @numero, biografia = @biografia, contrasenna = @contrasenna WHERE idUsuario = @idUsuario');
+
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).send('Usuario actualizado correctamente.');
+        } else {
+            res.status(404).send('Usuario no encontrado.');
+        }
+    } catch (error) {
+        console.error('Error al actualizar el usuario:', error);
+        res.status(500).send('Error al actualizar el usuario');
+    }
+});
+
 
 module.exports = router;

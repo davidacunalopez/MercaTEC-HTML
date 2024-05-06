@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     encontrado = true;
 
                     //Se establecen los datos del usuario globalmente
+                    alert(item.idUsuario);
                     localStorage.setItem( 'idUsuario', item.idUsuario);
                     localStorage.setItem( 'nombre', item.nombre);
                     localStorage.setItem( 'apellidos', item.apellidos);
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     localStorage.setItem( 'numero', item.numero);
                     localStorage.setItem( 'biografia', item.biografia);
                     localStorage.setItem( 'imgURL', item.imgURL);
+                    localStorage.setItem( 'contrasenna', item.contrasenna);
                     console.log(item.imgURL);
                     return;
                 }

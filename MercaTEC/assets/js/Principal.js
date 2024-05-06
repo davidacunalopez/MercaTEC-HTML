@@ -132,21 +132,27 @@ function clickEnFotoDePerfil(event, elemento){
     var cardId = card.id;
     var idProducto = cardId.split('-')[0];
     var idUsuario = cardId.split('-')[1];
-    alert(cardId);
     fetch('http://localhost:3000/getUsuarios')
         .then(response => response.json())
         .then(data => {
             data.forEach(item => {
                 if(item.idUsuario+'' === idUsuario){
-                    localStorage.setItem( 'idUsuario2', item.idUsuario);
-                    localStorage.setItem( 'nombre2', item.nombre);
-                    localStorage.setItem( 'apellidos2', item.apellidos);
-                    localStorage.setItem( 'correo2', item.correo);
-                    localStorage.setItem( 'numero2', item.numero);
-                    localStorage.setItem( 'biografia2', item.biografia);
-                    localStorage.setItem( 'imgURL2', item.imgURL);
-                    window.location.href = './Usuario secundario.html';
-                    return;
+                    alert(item.idUsuario+'' + ' - ' + localStorage.getItem('idUsuario'));
+                    if(item.idUsuario+'' === ''+localStorage.getItem('idUsuario')){
+                        window.location.href = './Usuario principal.html';
+                        return;
+                    }else{
+                        alert('Usuario secundario');
+                        localStorage.setItem( 'idUsuario2', item.idUsuario);
+                        localStorage.setItem( 'nombre2', item.nombre);
+                        localStorage.setItem( 'apellidos2', item.apellidos);
+                        localStorage.setItem( 'correo2', item.correo);
+                        localStorage.setItem( 'numero2', item.numero);
+                        localStorage.setItem( 'biografia2', item.biografia);
+                        localStorage.setItem( 'imgURL2', item.imgURL);
+                        window.location.href = './Usuario secundario.html';
+                        return; 
+                    }
                 }
             });
         })
