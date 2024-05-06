@@ -79,6 +79,23 @@ router.post('/setUsuario', async (req, res) => {
     }
 });
 
+router.post('/setProducto', async (req, res) => {
+    const { nombre, cantidad, precio, decripcion } = req.body;
+    const pool = await getConnection();
+    try {
+        const result = await pool.request()
+            .input('nombre', sql.VarChar, nombre)
+            .input('cantidad', sql.Int, cantidad)
+            .input('descripcion', sql.VarChar, descripcion)
+            .input('precio', sql.Int, precio)
+            .query('INSERT INTO dbo.Productos (nombre, descripcion, precio, cantidad) VALUES (@nombre, @descripcion, @precio, @cantidad)');
+        
+        res.status(201).send('Usuario registrado correctamente.');
+    } catch (error) {
+        console.error('Error al registrar el usuario:', error);
+        res.status(500).send('Error al registrar el usuario');
+    }
+});
 
 //--------------------------DELETES--------------------------
 router.delete('/deleteProducto/:idProducto', async (req, res) => {
@@ -146,6 +163,30 @@ router.put('/updateUsuario/:idUsuario', async (req, res) => {
     } catch (error) {
         console.error('Error al actualizar el usuario:', error);
         res.status(500).send('Error al actualizar el usuario');
+    }
+});
+router.put('/updateProducto/:idProducto', async (req, res) => {
+    const { idProducto } = req.params;
+    const { nombre, cantidad, precio, descripcion } = req.body;
+    const pool = await getConnection();
+
+    try {
+        const result = await pool.request()
+            .input('idProducto', sql.Int, idProducto)
+            .input('nombre', sql.VarChar, nombre)
+            .input('cantidad', sql.Int, cantidad)
+            .input('precio', sql.Int, precio)
+            .input('descripcion', sql.VarChar, descripcion)
+            .query('UPDATE dbo.Productos SET nombre = @nombre, cantidad = @cantidad, precio = @precio, descripcion = @descripcion WHERE idProducto = @idProducto');
+
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).send('Producto actualizado correctamente.');
+        } else {
+            res.status(404).send('Producto no encontrado.');
+        }
+    } catch (error) {
+        console.error('Error al actualizar el producto:', error);
+        res.status(500).send('Error al actualizar el producto');
     }
 });
 
