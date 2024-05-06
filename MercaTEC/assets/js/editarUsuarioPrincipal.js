@@ -70,6 +70,11 @@ function cargarDatos(){
     document.getElementById('biography').value = localStorage.getItem('biografia');
     document.getElementById('contrasenna').value = localStorage.getItem('contrasenna');
     document.getElementById('confirm-password').value = localStorage.getItem('contrasenna');
+
+    if (localStorage.getItem('ALTOCONTRASTE') == 1) {
+        var stylesheet = document.getElementById('altoContrasteCss');
+        stylesheet.disabled = false;
+    }
 }
 
 cargarDatos();

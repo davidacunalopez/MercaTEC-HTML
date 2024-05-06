@@ -1,0 +1,303 @@
+/* alto-contraste.css */
+
+
+body, html {
+    background-color: #000; /* Fondo negro para máximo contraste */
+    color: #fff; /* Texto blanco */
+    font-family: Arial, sans-serif; /* Fuente legible */
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    background-color: #000; /* Gris oscuro */
+    border-bottom: 2px solid #fff; /* Línea divisoria blanca */
+}
+
+.navbar a, .navbar a:hover, .navbar a:active {
+    color: #0ff; /* Enlaces en cian para contraste */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.navbar .navbar-toggler {
+    border-color: #fff; /* Borde del botón del menú en blanco */
+}
+
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Cambiar el color del icono de menú */
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #444; /* Gris oscuro */
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #555; /* Gris más claro al pasar el ratón */
+}
+
+/* Títulos y texto del main */
+h1, p {
+    color: #ff0; /* Amarillo para los títulos y descripciones */
+}
+
+
+
+/* Estilos para el footer */
+footer {
+    background-color: #333; /* Fondo gris oscuro */
+    color: #fff;
+    padding: 20px 0; /* Acolchado superior e inferior */
+    text-align: center;
+}
+
+footer a, footer a:hover {
+    color: #0ff; /* Enlaces en cian, para mantener la coherencia */
+    text-decoration: none; /* Sin subrayado */
+}
+
+
+/* CSS de alto contraste para las pantallas iniciales: Main, LogIN, SignIn */
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar button {
+    background-color: #444; /* Fondo gris oscuro para los botones */
+    color: #fff; /* Texto blanco para contraste */
+    border: 2px solid #fff; /* Borde blanco para mayor visibilidad */
+    margin-inline: 5px;
+}
+
+/* Modifica el footer para usar un fondo negro y texto de alto contraste */
+footer {
+    background: #000; /* Fondo negro para máximo contraste */
+    color: #ff0; /* Texto amarillo para alta visibilidad */
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+/* Ajusta los enlaces en el footer para que sean más visibles */
+footer a {
+    color: #0ff; /* Cian claro, proporciona un fuerte contraste contra el fondo negro */
+    text-decoration: none; /* Elimina el subrayado para una apariencia más limpia */
+}
+
+footer a:hover {
+    color: #ff0; /* Cambia a amarillo al pasar el ratón para una clara indicación de interactividad */
+    text-decoration: underline; /* Añade un subrayado para destacar el enlace activo */
+}
+
+
+.card {
+    background-color: #000; /* Fondo negro para el máximo contraste */
+    color: #fff; /* Texto blanco para un alto contraste */
+    border: 1px solid #fff; /* Borde blanco para definir claramente los límites de la tarjeta */
+}
+
+.card img {
+    border-radius: 20px; /* Redondeo de imágenes conservado */
+}
+
+.card-title {
+    color: #ff0; /* Títulos en amarillo para destacar */
+}
+
+.card-text {
+    color: #ccc; /* Texto en gris claro para menos agresión visual pero aún contrastante */
+}
+
+.card a {
+    color: #0ff; /* Enlaces en cian para destacar */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.card a:hover {
+    color: #ff0; /* Amarillo al pasar el ratón para resaltar interacción */
+    text-decoration: underline; /* Subrayado para claridad */
+}
+
+.btn-primary {
+    background-color: #444; /* Fondo gris oscuro para botones */
+    color: #fff; /* Texto blanco para contraste */
+}
+
+.btn-primary:hover {
+    background-color: #555; /* Gris más claro al pasar el ratón */
+}
+
+.card-price {
+    color: #0ff; /* Precio en cian claro */
+    font-size: 1.2em; /* Tamaño un poco mayor para destacar el precio */
+}
+
+
+/* Alto contraste para el contenedor principal y sus componentes */
+.container#containerMain {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+}
+
+/* Mejorar la visibilidad de las casillas de verificación */
+.form-check-input {
+    accent-color: #ff0; /* Color amarillo para la casilla */
+}
+
+.form-check-label {
+    color: #fff; /* Texto blanco para etiquetas de las casillas */
+}
+
+/* Estilos de los botones para mantener el alto contraste */
+.btn-primary {
+    background-color: #444; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    border: 1px solid #fff; /* Borde blanco para definir claramente los límites */
+}
+
+.btn-primary:hover {
+    background-color: #555; /* Gris más claro al pasar el ratón */
+}
+
+/* Estilos para los enlaces dentro de la lista desplegable */
+.list-group-item a {
+    color: #0ff; /* Enlaces en cian para destacar */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.list-group-item a:hover {
+    color: #ff0; /* Amarillo al pasar el ratón para resaltar interacción */
+    text-decoration: underline; /* Subrayado para claridad */
+}
+
+/* Estilos para las listas dentro del desplegable */
+.list-group-item {
+    background-color: #222; /* Fondo gris muy oscuro para los items de lista */
+    border: 1px solid #fff; /* Borde blanco para separar los items */
+}
+
+/* Ajustes de visibilidad para los íconos SVG */
+svg {
+    fill: #ff0; /* Relleno amarillo para los íconos */
+    width: 20px; /* Asegura tamaño uniforme */
+    height: 20px;
+}
+
+/* Estilos de alto contraste para form-check */
+.form-check {
+    margin-top: 20px;
+    background-color: #000; /* Fondo negro */
+}
+
+.form-check-input {
+    width: 20px; /* Tamaño más grande para fácil manipulación */
+    height: 20px;
+    accent-color: #ff0; /* Color amarillo brillante para la casilla */
+}
+
+.form-check-label {
+    color: #ff0; /* Texto blanco para un alto contraste */
+    margin-left: 10px; /* Espacio entre la casilla y la etiqueta */
+}
+
+/* Mejora de la visibilidad cuando el mouse está sobre la casilla */
+.form-check-input:hover {
+    border-color: #ff0; /* Borde amarillo al pasar el ratón */
+}
+
+/* Estilos de alto contraste para filas y columnas */
+.row {
+    background-color: #000; /* Fondo negro para las filas */
+    color: #fff; /* Texto blanco para garantizar alto contraste */
+    padding: 10px; /* Espaciado interno para evitar que el contenido toque los bordes */
+    margin: 0 -15px; /* Ajuste del margen para manejar el espacio entre columnas */
+}
+
+.col, .col-auto {
+    border: 2px solid #fff; /* Borde blanco para resaltar cada columna */
+    padding: 10px; /* Espaciado interno para cada columna */
+    margin: 5px 0; /* Margen vertical para separar columnas visualmente */
+}
+
+/* Estilo adicional para mejorar la visibilidad al interactuar con elementos dentro de columnas */
+.col:hover, .col-auto:hover {
+    background-color: #222; /* Cambio a un gris oscuro al pasar el ratón para indicar foco */
+    color: #ff0; /* Cambio a texto amarillo para mejorar la visibilidad al interactuar */
+}
+
+
+/* Alto contraste para íconos básicos */
+.bs-icon {
+    --bs-icon-size: .75rem;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--bs-icon-size);
+    width: calc(var(--bs-icon-size) * 2);
+    height: calc(var(--bs-icon-size) * 2);
+    color: #fff; /* Texto blanco */
+    background: #000; /* Fondo negro */
+    border: 2px solid #fff; /* Borde blanco para destacar más */
+  }
+  
+  /* Ajustes de tamaño para íconos, manteniendo alto contraste */
+  .bs-icon-xs, .bs-icon-sm, .bs-icon-md, .bs-icon-lg, .bs-icon-xl {
+    color: #fff; /* Texto blanco */
+    background: #000; /* Fondo negro */
+  }
+  
+  .bs-icon-xs {
+    --bs-icon-size: 1rem;
+    width: calc(var(--bs-icon-size) * 1.5);
+    height: calc(var(--bs-icon-size) * 1.5);
+  }
+  
+  .bs-icon-md {
+    --bs-icon-size: 1.5rem;
+  }
+  
+  .bs-icon-lg {
+    --bs-icon-size: 2rem;
+  }
+  
+  .bs-icon-xl {
+    --bs-icon-size: 2.5rem;
+  }
+  
+  /* Estilos específicos para variaciones de íconos */
+  .bs-icon.bs-icon-primary {
+    color: #fff; /* Texto blanco */
+    background: #000; /* Fondo negro */
+  }
+  
+  .bs-icon.bs-icon-primary-light {
+    color: #fff;
+    background: rgba(0, 0, 0, .8); /* Fondo negro translúcido para ligera visibilidad del fondo */
+  }
+  
+  .bs-icon.bs-icon-semi-white {
+    color: #000;
+    background: #fff; /* Fondo blanco con texto negro para alto contraste */
+  }
+  
+  /* Bordes redondeados y círculo para íconos */
+  .bs-icon.bs-icon-rounded, .bs-icon.bs-icon-circle {
+    border: 2px solid #fff; /* Borde blanco para todos los íconos redondeados y circulares */
+  }
+
+  #columnizq{
+    background-color: #000;
+  }
+
+  #columnder{
+    background-color: #000;
+  }

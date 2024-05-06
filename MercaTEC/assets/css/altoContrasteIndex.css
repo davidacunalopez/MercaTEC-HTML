@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(8, 0, 0, 0.9), rgba(62, 62, 62, 0.9)), url("../../assets/img/Feria.jpeg"); /* Fondo más claro para resaltar el contenido */
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+.container h1 {
+    text-shadow: 2px 2px 4px #000; /* Sombra más pronunciada para mejorar la legibilidad */
+    color: #ff0; /* Texto en amarillo brillante */
+    font-size: 120px;
+}
+
+.container p {
+    color: #0ff; /* Texto en cian claro para mantener el alto contraste */
+    text-shadow: 2px 2px 4px #000; /* Sombra más pronunciada para texto */
+    font-size: 35px;
+    padding-bottom: 20px;
+}
+
+.container button {
+    font-weight: bold;
+    color: #000; /* Texto negro para máximo contraste sobre fondo brillante */
+    background-color: #ff0; /* Fondo amarillo brillante para destacar */
+    border: 2px solid #fff; /* Borde blanco para más visibilidad */
+    margin-inline: 12px;
+    text-align: center;
+    font-size: larger;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para interacciones */
+}
+
+.container button:hover {
+    background-color: #f00; /* Rojo al pasar el ratón para resaltar interacción */
+    color: #fff; /* Texto blanco durante el hover para mantener contraste */
+}
+
+
+#bodyLetter .nav{
+    background-color: #333; /* Gris oscuro */
+    border-bottom: 2px solid #fff; /* Línea divisoria blanca */
+}
+
+/* Estilos para el cuerpo */
+#bodyLetter {
+    background-color: black;
+    color: rgb(241, 238, 14);
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: black;
+    color: black;
+}
+
+/* Estilos para los enlaces de la barra de navegación */
+.navbar-nav .nav-link {
+    color: black;
+}
+
+/* Estilos para los botones de la barra de navegación */
+.navbar-nav .btn {
+    background-color: black;
+    color: white;
+}
+
+/* Estilos para los botones de la barra de navegación en estado :hover */
+.navbar-nav .btn:hover {
+    background-color: white;
+    color: black;
+}
