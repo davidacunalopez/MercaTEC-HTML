@@ -53,6 +53,20 @@ function cargarDatos(){
     document.getElementById('nombreP').value = localStorage.getItem('nombre');
     document.getElementById('cantidad').value = localStorage.getItem('cantidad');
     document.getElementById('descripcion').value = localStorage.getItem('descripcion');
-}
+    if (localStorage.getItem('ALTOCONTRASTE') == 1) {
+        var stylesheet = document.getElementById('altoContrasteCss');
+        stylesheet.disabled = false;
+    }
+};
 
 cargarDatos();
+
+function setAltoContraste(){
+    var stylesheet = document.getElementById('altoContrasteCss');
+    stylesheet.disabled = !stylesheet.disabled;
+    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
+  
+    var stylesheet = document.getElementById('altoContrasteIndexCss');
+    stylesheet.disabled = !stylesheet.disabled;
+    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
+  };

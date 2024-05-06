@@ -14,6 +14,11 @@ function cargarDatos() {
     lblDescripcionPS.textContent = localStorage.getItem('DESCRIPCIONPS');
     imgPS.src = localStorage.getItem('IMGPS');
     imgPS.alt = 'Foto del producto'
+
+    if (localStorage.getItem('ALTOCONTRASTE') == 1) {
+        var stylesheet = document.getElementById('altoContrasteCss');
+        stylesheet.disabled = false;
+    }
 }
 
 cargarDatos();
@@ -31,3 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href='';
     });
 });
+
+function setAltoContraste(){
+    var stylesheet = document.getElementById('altoContrasteCss');
+    stylesheet.disabled = !stylesheet.disabled;
+    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
+  
+    var stylesheet = document.getElementById('altoContrasteIndexCss');
+    stylesheet.disabled = !stylesheet.disabled;
+    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
+  };
