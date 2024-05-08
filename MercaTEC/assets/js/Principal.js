@@ -168,51 +168,55 @@ function clickEnFotoDePerfil(event, elemento){
 function Comprar(elemento){
     var card = elemento.closest('.card');
     var cardId = card.id;
-    if(cardId.split('-')[2] === 'p'){ //Si es un producto, se guarda en el localStorage los datos del producto
-        //Buscar el producto seleccionado
-        fetch('http://localhost:3000/getProductos')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(item => {
-                if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
-                    if(item.idProducto+'' === cardId.split('-')[0]){
-                        localStorage.setItem( 'esPoS', 'p');
-                        localStorage.setItem( 'IDUSUARIO', item.idUsuario);
-                        localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
-                        localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
-                        localStorage.setItem( 'IDPS', item.idProducto);
-                        localStorage.setItem( 'NOMBREPS', item.nombreProducto);
-                        localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
-                        localStorage.setItem( 'PRECIOPS', item.precio);
-                        localStorage.setItem( 'IMGPS', item.imgProducto);
-                        window.location.href = 'InfoProducto.html';
-                        return;
+    if(localStorage.getItem('IDPS')==='0'){
+        if(cardId.split('-')[2] === 'p'){ //Si es un producto, se guarda en el localStorage los datos del producto
+            //Buscar el producto seleccionado
+            fetch('http://localhost:3000/getProductos')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
+                        if(item.idProducto+'' === cardId.split('-')[0]){
+                            localStorage.setItem( 'esPoS', 'p');
+                            localStorage.setItem( 'IDUSUARIO', item.idUsuario);
+                            localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
+                            localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
+                            localStorage.setItem( 'IDPS', item.idProducto);
+                            localStorage.setItem( 'NOMBREPS', item.nombreProducto);
+                            localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
+                            localStorage.setItem( 'PRECIOPS', item.precio);
+                            localStorage.setItem( 'IMGPS', item.imgProducto);
+                            window.location.href = 'InfoProducto.html';
+                            return;
+                        }
                     }
-                }
-            });
-        })
-    }else{ //Si es un servicio, se guarda en el localStorage los datos del servicio
-        fetch('http://localhost:3000/getServicios')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(item => {
-                if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
-                    if(item.idServicio+'' === cardId.split('-')[0]){
-                        localStorage.setItem( 'esPoS', 's');
-                        localStorage.setItem( 'IDUSUARIO', item.idUsuario);
-                        localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
-                        localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
-                        localStorage.setItem( 'IDPS', item.idProducto);
-                        localStorage.setItem( 'NOMBREPS', item.nombreProducto);
-                        localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
-                        localStorage.setItem( 'PRECIOPS', item.precio);
-                        localStorage.setItem( 'IMGPS', item.imgProducto);
-                        window.location.href = 'InfoProducto.html';
-                        return;
+                });
+            })
+        }else{ //Si es un servicio, se guarda en el localStorage los datos del servicio
+            fetch('http://localhost:3000/getServicios')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
+                        if(item.idServicio+'' === cardId.split('-')[0]){
+                            localStorage.setItem( 'esPoS', 's');
+                            localStorage.setItem( 'IDUSUARIO', item.idUsuario);
+                            localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
+                            localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
+                            localStorage.setItem( 'IDPS', item.idProducto);
+                            localStorage.setItem( 'NOMBREPS', item.nombreProducto);
+                            localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
+                            localStorage.setItem( 'PRECIOPS', item.precio);
+                            localStorage.setItem( 'IMGPS', item.imgProducto);
+                            window.location.href = 'InfoProducto.html';
+                            return;
+                        }
                     }
-                }
-            });
-        })
+                });
+            })
+        }
+    }else{
+        alert('Maximo un elemento en el carrito')
     }
 };
 
@@ -225,4 +229,18 @@ function setAltoContraste(){
     var stylesheet = document.getElementById('altoContrasteIndexCss');
     stylesheet.disabled = !stylesheet.disabled;
     localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
+};
+
+function cerrarSesion(){
+    localStorage.clear();
+    window.location.href = 'index.html';
+};
+
+function usuarioPrincipal(){
+    window.location.href = 'Usuario principal.html';
+};
+
+function abrirCarrito(){
+    window.location.href = 'Carrito.html';
 }
+

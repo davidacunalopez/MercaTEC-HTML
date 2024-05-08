@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     localStorage.setItem( 'imgURL', item.imgURL);
                     localStorage.setItem( 'contrasenna', item.contrasenna);
                     console.log(item.imgURL);
+                    localStorage.setItem( 'IDPS', '0');
                     return;
                 }
             });

@@ -23,26 +23,16 @@ function cargarDatos() {
 
 cargarDatos();
 
-document.addEventListener('DOMContentLoaded', function () {
-    const btnCancelar = document.getElementById('btnCancelar');
-    const btnAnadirAlCarrito = document.getElementById('btnAnadirAlCarrito');
-    btnCancelar.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = 'Principal.html';
-    });
-    btnAnadirAlCarrito.addEventListener('click', function (event) {
-        event.preventDefault();
-        alert('Producto añadido al carrito');
-        window.location.href='Principal.html';
-    });
-});
+function quitar(){
+    localStorage.setItem( 'IDPS', '0');
+    window.location.href = 'Principal.html';
+};
 
-function setAltoContraste(){
-    var stylesheet = document.getElementById('altoContrasteCss');
-    stylesheet.disabled = !stylesheet.disabled;
-    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
-  
-    var stylesheet = document.getElementById('altoContrasteIndexCss');
-    stylesheet.disabled = !stylesheet.disabled;
-    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
+
+function cancelar(){
+    window.location.href = 'Principal.html';
+};
+
+function comprar(){
+
 };
