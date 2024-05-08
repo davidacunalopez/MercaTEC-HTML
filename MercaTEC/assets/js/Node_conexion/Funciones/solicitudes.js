@@ -173,6 +173,32 @@ router.post('/setUsuario', async (req, res) => {
     }
 });
 
+router.post('/insertarTransaccion', async (req, res) => {
+    const { idComprador, idVendedor, idProducto } = req.body;
+
+    // Validar que los datos necesarios están presentes
+    if (!idComprador || !idVendedor || !idProducto) {
+        return res.status(400).json({ error: "Los campos idComprador, idVendedor y idProducto son obligatorios" });
+    }
+
+    try {
+        const pool = await getConnection();
+        const query = `
+            INSERT INTO dbo.TransaccionesProductos (idComprador, idVendedor, idProducto, fechaCompra)
+            VALUES (@idComprador, @idVendedor, @idProducto, GETDATE())
+        `;
+        const result = await pool.request()
+            .input('idComprador', sql.Int, idComprador)
+            .input('idVendedor', sql.Int, idVendedor)
+            .input('idProducto', sql.Int, idProducto)
+            .query(query);
+
+        res.json({ mensaje: "Transacción insertada correctamente con la fecha actual del sistema", resultado: result.recordset });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 router.post('/setProducto', async (req, res) => {
     const { nombre, cantidad, precio, decripcion } = req.body;
     const pool = await getConnection();

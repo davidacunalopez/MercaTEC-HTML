@@ -34,5 +34,29 @@ function cancelar(){
 };
 
 function comprar(){
-
+    fetch('http://localhost:3000/insertarTransaccion', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            idComprador: Number(document.getElementById('idUsuario').value),
+            idVendedor: Number(document.getElementById('IDUSUARIO').value),
+            idProducto: Number(document.getElementById('IDPS').value)
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Transacción registrada con éxito');
+        console.log(data);
+        // Redirección tras éxito, ajustar según necesidad
+        window.location.href = './paginaConfirmacion.html'; 
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al registrar la transacción.');
+    });
+    localStorage.setItem( 'IDPS', '0');
+    alert('Producto comprado');
+    window.location.href = 'Principal.html';
 };
