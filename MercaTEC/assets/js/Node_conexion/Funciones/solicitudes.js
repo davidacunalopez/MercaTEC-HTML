@@ -200,31 +200,37 @@ router.post('/insertarTransaccion', async (req, res) => {
 });
 
 router.post('/setProducto', async (req, res) => {
-    const { nombre, cantidad, precio, decripcion } = req.body;
+    const { idUsuario, idCategoria, nombre, cantidad, precio, descripcion } = req.body;
     const pool = await getConnection();
     try {
         const result = await pool.request()
+            .input('idUsuario', sql.Int, idUsuario)
+            .input('idCategoria', sql.Int, idCategoria)
             .input('nombre', sql.VarChar, nombre)
             .input('cantidad', sql.Int, cantidad)
-            .input('descripcion', sql.VarChar, descripcion)
             .input('precio', sql.Int, precio)
-            .query('INSERT INTO dbo.Productos (nombre, descripcion, precio, cantidad) VALUES (@nombre, @descripcion, @precio, @cantidad)');
+            .input('descripcion', sql.VarChar, descripcion)
+            .query('INSERT INTO dbo.Productos (idUsuario, idCategoria, nombre, cantidad, precio, descripcion) VALUES (@idUsuario, @idCategoria, @nombre, @cantidad, @precio, @descripcion)');
         
-        res.status(201).send('Usuario registrado correctamente.');
+        res.status(201).send('Producto registrado correctamente.');
     } catch (error) {
-        console.error('Error al registrar el usuario:', error);
-        res.status(500).send('Error al registrar el usuario');
+        console.error('Error al registrar el producto:', error);
+        res.status(500).send('Error al registrar el producto');
     }
 });
+
 router.post('/setServicio', async (req, res) => {
-    const { nombre, precio, descripcion } = req.body;
+    const { idUsuario, idCategoria, nombre, cantidad, precio, descripcion } = req.body;
     const pool = await getConnection();
     try {
         const result = await pool.request()
+            .input('idUsuario', sql.Int, idUsuario)
+            .input('idCategoria', sql.Int, idCategoria)
             .input('nombre', sql.VarChar, nombre)
-            .input('descripcion', sql.VarChar, descripcion)
+            .input('cantidad', sql.Int, cantidad)
             .input('precio', sql.Int, precio)
-            .query('INSERT INTO dbo.Servicios (nombre, descripcion, precio) VALUES (@nombre, @descripcion, @precio)');
+            .input('descripcion', sql.VarChar, descripcion)
+            .query('INSERT INTO dbo.Servicios (idUsuario, idCategoria, nombre, cantidad, precio, descripcion) VALUES (@idUsuario, @idCategoria, @nombre, @cantidad, @precio, @descripcion)');
         res.status(201).send('Servicio registrado correctamente.');
     } catch (error) { 
         console.error('Error al registrar el servicio:', error);
@@ -302,17 +308,18 @@ router.put('/updateUsuario/:idUsuario', async (req, res) => {
 });
 router.put('/updateProducto/:idProducto', async (req, res) => {
     const { idProducto } = req.params;
-    const { nombre, cantidad, precio, descripcion } = req.body;
+    const { idCategoria, nombre, cantidad, precio, descripcion } = req.body;
     const pool = await getConnection();
 
     try {
         const result = await pool.request()
             .input('idProducto', sql.Int, idProducto)
+            .input('idCategoria', sql.Int, idCategoria)
             .input('nombre', sql.VarChar, nombre)
             .input('cantidad', sql.Int, cantidad)
             .input('precio', sql.Int, precio)
             .input('descripcion', sql.VarChar, descripcion)
-            .query('UPDATE dbo.Productos SET nombre = @nombre, cantidad = @cantidad, precio = @precio, descripcion = @descripcion WHERE idProducto = @idProducto');
+            .query('UPDATE dbo.Productos SET idCategoria = @idCategoria, nombre = @nombre, cantidad = @cantidad, precio = @precio, descripcion = @descripcion WHERE idProducto = @idProducto');
 
         if (result.rowsAffected[0] > 0) {
             res.status(200).send('Producto actualizado correctamente.');
@@ -325,5 +332,30 @@ router.put('/updateProducto/:idProducto', async (req, res) => {
     }
 });
 
+router.put('/updateServicio/:idServicio', async (req, res) => {
+    const { idServicio } = req.params;
+    const { idCategoria, nombre, cantidad, precio, descripcion } = req.body;
+    const pool = await getConnection();
+
+    try {
+        const result = await pool.request()
+            .input('idServicio', sql.Int, idServicio)
+            .input('idCategoria', sql.Int, idCategoria)
+            .input('nombre', sql.VarChar, nombre)
+            .input('cantidad', sql.Int, cantidad)
+            .input('precio', sql.Int, precio)
+            .input('descripcion', sql.VarChar, descripcion)
+            .query('UPDATE dbo.Servicios SET idCategoria = @idCategoria, nombre = @nombre, cantidad = @cantidad, precio = @precio, descripcion = @descripcion WHERE idServicio = @idServicio');
+
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).send('Servicio actualizado correctamente.');
+        } else {
+            res.status(404).send('Servicio no encontrado.');
+        }
+    } catch (error) {
+        console.error('Error al actualizar el servicio:', error);
+        res.status(500).send('Error al actualizar el servicio');
+    }
+});
 
 module.exports = router;

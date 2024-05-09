@@ -152,13 +152,15 @@ function insertarCajasServicios(contenedor, fila, cont) {
 cargarDatos();
 
 function funcionEditar(elemento){
-    var idCard = elemento.card.id;
+    alert('Editar')
+    var card = elemento.closest('.card')
+    var idCard = card.id;
     if(idCard.split('-')[2] === 'p'){
         localStorage.setItem('p_idProducto', idCard.split('-')[0]);
-        window.location.href = '';
+        window.location.href = 'EditarInfoProdu.html';
     }else{
         localStorage.setItem('s_idServicio', idCard.split('-')[0]);
-        window.location.href = '';
+        window.location.href = 'EditarInfoServicio.html';
     }
 };
 

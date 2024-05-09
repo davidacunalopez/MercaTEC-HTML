@@ -3,7 +3,7 @@ const sql = require('mssql');
 const config = {
     user: 'dav',
     password: '12345',
-    server: 'DAVID', // Puede ser una dirección IP o un nombre de servidor
+    server: 'DAVID', // Puede ser una dirección IP o un nombre de servidor DAVID
     database: 'dbMercaTEC',
     options: {
         encrypt: false, // Si estás usando Azure SQL, de lo contrario puedes desactivarlo

@@ -6,28 +6,28 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();  // Detiene el envío predeterminado del formulario
 
         // Captura los valores de los campos del formulario
-        const nombreProducto = document.getElementById('nombre').value;
+        const nombreServicio = document.getElementById('nombre').value;
         const idCategoria = parseInt(document.getElementById('categoria').value);
         const cantidad = document.getElementById('cantidad').value;
         const precio = document.getElementById('precio').value;
         const descrip = document.getElementById('descripcion').value;
 
         
-        console.log('Nombre:', nombreProducto);
+        console.log('Nombre:', nombreServicio);
         console.log('Categoria:', idCategoria);
         console.log('Cantidad:', cantidad);
         console.log('Precio:', precio);
         console.log('Descripción:', descrip);
 
-        alert(localStorage.getItem('p_idProducto'));
-        fetch(`http://localhost:3000/updateProducto/${localStorage.getItem('p_idProducto')}`, {
+        alert(localStorage.getItem('s_idServicio'));
+        fetch(`http://localhost:3000/updateServicio/${localStorage.getItem('s_idServicio')}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 idCategoria: idCategoria,
-                nombre: nombreProducto,
+                nombre: nombreServicio,
                 cantidad: cantidad,
                 precio: precio,
                 descripcion: descrip,
@@ -35,13 +35,13 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.text())
         .then(data => {
-            alert('Producto actualizado con éxito');
+            alert('Servicio actualizado con éxito');
             console.log(data);
             window.location.href = './Usuario principal.html';  // O redirigir a otra página según necesario
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Error al actualizar el producto.');
+            alert('Error al actualizar el servicio.');
         });
         
 
@@ -71,4 +71,3 @@ function cargarDatos(){
 };
 
 cargarDatos();
-
