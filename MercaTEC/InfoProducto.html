@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+<html lang="es" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>MercaTEC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Información del Producto - MercaTEC</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/General.css">
@@ -14,27 +14,51 @@
 
 <body>
     <nav class="navbar navbar-expand-md" style="box-shadow: 1px 0px 8px;">
-        <div class="container-fluid"><a class="navbar-brand" href="Principal.html"><img src="assets/img/clipboard-image.png" width="136" height="56"></a>
-            <div class="search-bar"><input type="text" placeholder="¿Qué deseas buscar?"><button class="btn btn-primary" id="btnBuscar" type="button"><i class="fas fa-search"></i></button></div>
-            <div class="navbar-icons"><a href="Usuario%20principal.html"><button class="btn btn-primary" id="btnUsuario" type="button"><i class="far fa-user"></i></button></a><a href="#"><button class="btn btn-primary" id="btnCompra" type="button"><i class="fas fa-shopping-basket"></i></button></a></div>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Principal.html">
+                <img src="assets/img/clipboard-image.png" alt="Logo de MercaTEC" width="136" height="56">
+            </a>
+            <div class="search-bar">
+                <label for="searchInput" class="visually-hidden">Buscar</label>
+                <input type="text" id="searchInput" placeholder="¿Qué deseas buscar?" aria-label="Buscar">
+                <button class="btn btn-primary" id="btnBuscar" type="button" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="navbar-icons">
+                <a href="Usuario%20principal.html" aria-label="Perfil de usuario">
+                    <button class="btn btn-primary" id="btnUsuario" type="button">
+                        <i class="far fa-user"></i>
+                    </button>
+                </a>
+                <a href="#" aria-label="Carrito de compras">
+                    <button class="btn btn-primary" id="btnCompra" type="button">
+                        <i class="fas fa-shopping-basket"></i>
+                    </button>
+                </a>
+            </div>
         </div>
     </nav>
     <main style="margin-top: 20px; padding-left: 20px;">
-        <div class="d-flex" style="margin-bottom: 20px;"><img class="d-flex" id="imgPerfil" style="border-radius: 100px;width: 100px;height: 100px;margin-right: 20px;">
+        <section class="d-flex" style="margin-bottom: 20px;">
+            <img class="d-flex" id="imgPerfil" src="path_to_default_image.jpg" alt="Imagen del vendedor" style="border-radius: 100px; width: 100px; height: 100px; margin-right: 20px;">
             <div>
-                <h5>Vendedor</h5><span id="lblNombreVendedor">Nombre</span>
+                <h5>Vendedor</h5>
+                <span id="lblNombreVendedor">Nombre del Vendedor</span>
             </div>
-        </div>
+        </section>
         <hr>
-        <div class="d-lg-flex">
-            <img class="d-flex" id="imgPS" style="width: 200px;height: 200px;margin-right: 10px;border-radius: 10px;">
+        <section class="d-lg-flex">
+            <img class="d-flex" id="imgPS" src="path_to_product_image.jpg" alt="Imagen del producto" style="width: 200px; height: 200px; margin-right: 10px; border-radius: 10px;">
             <div>
-                <h5 id="lblNombrePS">Producto</h5>
-                <p id="lblDescripcionPS">Descripción</p>
-                <div class="card-price"><span id="lblPrecioPS">Precio</span></div>
+                <h5 id="lblNombrePS">Nombre del Producto</h5>
+                <p id="lblDescripcionPS">Descripción detallada del producto.</p>
+                <div class="card-price">
+                    <span id="lblPrecioPS">Precio del Producto</span>
+                </div>
             </div>
-        </div>
-        <div style="margin-top: 20px;margin-left: 20px;">
+        </section>
+        <div style="margin-top: 20px; margin-left: 20px;">
             <button class="btn btn-primary" type="button" id="btnCancelar">Cancelar</button>
             <button class="btn btn-primary" type="button" style="margin-left: 20px;" id="btnAnadirAlCarrito">Añadir al carrito</button>
         </div>

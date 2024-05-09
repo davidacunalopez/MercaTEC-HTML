@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
         productos.IMGVENDEDOR = localStorage.getItem('IMGVENDEDOR');
         productos.NOMBREVENDEDOR = localStorage.getItem('NOMBREVENDEDOR');
         productos.APELLIDOSVENDEDOR = localStorage.getItem('APELLIDOSVENDEDOR');
+        productos.NOMBREPS = localStorage.getItem('NOMBREPS');
+        productos.DESCRIPCIONPS = localStorage.getItem('DESCRIPCIONPS');
         productos.IMGPS = localStorage.getItem('IMGPS');
         productos.PRECIOPS = localStorage.getItem('PRECIOPS');
         setPRODUCTOSCARRITO(productos);

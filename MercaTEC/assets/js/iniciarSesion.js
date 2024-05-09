@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     btnRegistrarse.addEventListener('click', function(event) {
       event.preventDefault(); // Evita que el formulario se envíe
-
+        
       //Se valida si hay espacios vacios
       if (edCorreo.value.trim()==='') {
         alert('Hay espacios vacíos.');

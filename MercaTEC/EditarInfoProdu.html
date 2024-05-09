@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+<html lang="es" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MercaTEC</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/General.css">
@@ -15,18 +15,25 @@
     <section class="position-relative py-4 py-xl-5">
         <div class="container position-relative">
             <div class="row">
-                <div class="col d-flex d-lg-flex flex-column justify-content-lg-center align-items-lg-center"><img class="d-block" style="width: 250px;height: 250px;padding-bottom: 20px;"><a class="d-block" href="#">Cambiar foto</a></div>
+                <div class="col d-flex d-lg-flex flex-column justify-content-lg-center align-items-lg-center">
+                    <img class="d-block" src="path_to_image.jpg" alt="Imagen de perfil" style="width: 250px; height: 250px; padding-bottom: 20px;">
+                    <a class="d-block" href="cambiarFoto.html">Cambiar foto</a>
+                </div>
                 <div class="col-md-6 col-xl-4">
                     <div>
                         <form class="p-3 p-xl-4" method="post" id="formNuevoArticulo">
-                            <div class="mb-3"><label class="form-label" for="name">Nombre</label><input class="form-control" type="text" id="nombre" name="name"></div>
-                            <div class="mb-3"><label for="categoria">Categoría:</label>
-                                <select id="categoria" name="categoria">
+                            <div class="mb-3">
+                                <label class="form-label" for="nombre">Nombre</label>
+                                <input class="form-control" type="text" id="nombre" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="categoria">Categoría:</label>
+                                <select id="categoria" name="categoria" required>
                                     <option value="1">Alquiler de propiedades</option>
                                     <option value="2">Arte</option>
                                     <option value="3">Artesanías</option>
-                                    <option value="4">Articulos deportivos</option>
-                                    <option value="5">Articulos para la U</option>
+                                    <option value="4">Artículos deportivos</option>
+                                    <option value="5">Artículos para la universidad</option>
                                     <option value="6">Calzado</option>
                                     <option value="7">Coleccionables</option>
                                     <option value="8">Comestibles</option>
@@ -36,13 +43,25 @@
                                     <option value="12">Libros</option>
                                     <option value="13">Mascotas</option>
                                     <option value="14">Ropa</option>
-                                    <option value="15">Vehículo</option>
+                                    <option value="15">Vehículos</option>
                                 </select>
                             </div>
-                            <div class="mb-3"><label class="form-label" for="email">Cantidad</label></div><input class="form-control" id="cantidad"type="number" max="8">
-                            <div class="mb-3"><label class="form-label" for="email">Precio</label></div><input class="form-control" id ="precio"type="number" max="8">
-                            <div class="mb-3"><label class="form-label" for="message">Descripción</label><textarea class="form-control" id="descripcion" name="message" rows="6"></textarea></div>
-                            <div class="d-lg-flex justify-content-lg-center mb-3"><button class="btn btn-primary" type="submit" id="btnCancelar" style="background: rgb(253,27,13);">Cancelar</button><button class="btn btn-primary" type="submit" id="btnGuardar"style="margin-left: 30px;">Guardar</button></div>
+                            <div class="mb-3">
+                                <label class="form-label" for="cantidad">Cantidad</label>
+                                <input class="form-control" type="number" id="cantidad" name="cantidad" max="999" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="precio">Precio</label>
+                                <input class="form-control" type="number" id="precio" name="precio" max="99999" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="descripcion">Descripción</label>
+                                <textarea class="form-control" id="descripcion" name="message" rows="6" required></textarea>
+                            </div>
+                            <div class="d-lg-flex justify-content-lg-center mb-3">
+                                <button class="btn btn-primary" type="button" id="btnCancelar" style="background: rgb(253,27,13);">Cancelar</button>
+                                <button class="btn btn-primary" type="submit" id="btnGuardar" style="margin-left: 30px;">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

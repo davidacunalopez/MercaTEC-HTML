@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
-
+<html lang="es">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MercaTEC</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/InitialScreen.css">
@@ -13,33 +12,44 @@
     <link rel="stylesheet" href="assets/css/altoContrasteIndex.css" id="altoContrasteIndexCss" disabled>
 </head>
 
-<body id="bodyLetter">
+<body>
     <nav class="navbar navbar-expand-md bg-body">
-        <div class="container-fluid"><a class="navbar-brand" href="#"></a><img src="assets/img/clipboard-image.png" alt="MercaTEC Logo" width="136" height="56" style="border-radius: 15px;"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/clipboard-image.png" alt="Logo de MercaTEC" width="136" height="56" style="border-radius: 15px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navcol-1" aria-controls="navcol-1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav text-center ms-auto" style="align-items: center;">
-                    <li class="text-center">
-                        <a class="nav-link active">Sobre MercaTEC</a>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" aria-current="page">Sobre MercaTEC</a>
                     </li>
-                    <li class="nav-item"><button class="btn btn-primary" type="button" onclick="iniciarSesion()">Iniciar sesión</button></li>
-                    <li class="nav-item"><button class="btn btn-primary" type="button" onclick="registrarse()">Registrarse</button></li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary" type="button" aria-label="Iniciar sesión" onclick="iniciarSesion()">Iniciar sesión</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary" type="button" aria-label="Registrarse" onclick="registrarse()">Registrarse</button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
     <main>
         <div class="container">
-            <div id="titulosMain">
+            <header>
                 <h1>MercaTEC</h1>
                 <p>El mercadito preferido del TEC</p>
-            </div>
+            </header>
             <div>
-                <button class="btn btn-primary" type="button" onclick="iniciarSesion()">Iniciar sesión</button>
-                <button class="btn btn-primary" type="button" onclick="registrarse()">Registrarse</button></div>
+                <button class="btn btn-primary" type="button" aria-label="Iniciar sesión" onclick="iniciarSesion()">Iniciar sesión</button>
+                <button class="btn btn-primary" type="button" aria-label="Registrarse" onclick="registrarse()">Registrarse</button>
+            </div>
         </div>
     </main>
     <footer>
-        <ul class="list-inline" id="footerMain">
+        <ul class="list-inline">
             <li class="list-inline-item"><a href="https://www.tec.ac.cr/">Instituto Tecnológico de Costa Rica</a></li>
             <li class="list-inline-item"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Políticas de privacidad</a></li>
             <li class="list-inline-item"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Cookies</a></li>
@@ -49,5 +59,4 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
-
 </html>

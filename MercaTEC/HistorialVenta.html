@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+<html lang="es" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>MercaTEC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MercaTEC - Historial de Ventas</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/General.css">
@@ -14,29 +14,46 @@
 
 <body>
     <nav class="navbar navbar-expand-md" style="box-shadow: 1px 0px 8px;">
-        <div class="container-fluid"><a class="navbar-brand" href="Principal.html"><img src="assets/img/clipboard-image.png" width="136" height="56"></a>
-            <div class="search-bar"><input type="text" placeholder="¿Qué deseas buscar?"><button class="btn btn-primary" id="btnBuscar" type="button"><i class="fas fa-search"></i></button></div>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Principal.html">
+                <img src="assets/img/clipboard-image.png" alt="Logo de MercaTEC" width="136" height="56">
+            </a>
+            <div class="search-bar">
+                <label for="searchInput" class="visually-hidden">Buscar</label>
+                <input type="text" id="searchInput" placeholder="¿Qué deseas buscar?" aria-label="Buscar">
+                <button class="btn btn-primary" id="btnBuscar" type="button" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
             <div class="navbar-icons">
-                <button class="btn btn-primary" id="btnUsuario" type="button"  onclick="usuarioPrincipal()"><i class="far fa-user"></i></button>
-                <button class="btn btn-primary" id="btnCompra" type="button" onclick="carrito()"><i class="fas fa-shopping-basket"></i></button>
+                <button class="btn btn-primary" id="btnUsuario" type="button" onclick="usuarioPrincipal()" aria-label="Perfil de usuario">
+                    <i class="far fa-user"></i>
+                </button>
+                <button class="btn btn-primary" id="btnCompra" type="button" onclick="carrito()" aria-label="Ver carrito">
+                    <i class="fas fa-shopping-basket"></i>
+                </button>
             </div>
         </div>
     </nav>
-    <h1>Historial Venta</h1>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Artículo</th>
-                    <th>Precio</th>
-                    <th>Comprador</th>
-                    <th>Fecha de compra</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-            </tbody>
-        </table>
-    </div>
+    <main>
+        <h1>Historial de Ventas</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <caption>Lista de ventas realizadas</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Artículo</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Comprador</th>
+                        <th scope="col">Fecha de compra</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Contenido dinámico generado por scripts -->
+                </tbody>
+            </table>
+        </div>
+    </main>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/HistorialVentas.js"></script>
 </body>
