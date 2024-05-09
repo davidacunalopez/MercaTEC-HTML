@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi página con inputs y botones</title>
+</head>
+<body>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .input {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <div class="container">
+        <input type="text" id="input1" class="input">
+        <input type="text" id="input2" class="input">
+        <input type="text" id="input3" class="input">
+        <button id="button1" class="button" onclick="añadir()">Botón 1</button>
+        <button id="button2" class="button" onclick="imprimir()">Botón 2</button>
+    </div>
+    <script src="./assets/js/BORRAR.js"></script>
+</body> 
+</html>

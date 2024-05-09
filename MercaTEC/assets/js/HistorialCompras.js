@@ -20,8 +20,6 @@ function cargarDatos() {
     })
     .catch(error => console.error('Error:', error));
 
-    alert(idUsuario);
-
     fetch(`http://localhost:3000/getTransaccionesServiciosPorComprador?idComprador=${idUsuario}`)
     .then(response => response.json())
     .then(data => {
@@ -41,3 +39,11 @@ function cargarDatos() {
 };
 
 cargarDatos()
+
+function carrito(){
+    window.location.href = 'Carrito.html';
+};
+
+function usuarioPrincipal(){
+    window.location.href = 'Principal.html';
+};

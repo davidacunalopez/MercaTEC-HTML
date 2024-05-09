@@ -80,7 +80,7 @@ function insertarCajasServicios(contenedor, fila, cont) {
                     <img src="${item.imgServicio}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                     
                     <div class="d-lg-flex flex-column card-body">
-                        <h5 class="card-title">${item.nombreServicio}</h5>
+                        <h5 class="card-title">Servicio: ${item.nombreServicio}</h5>
                         <p class="card-text">${item.descripcion}</p>
                         <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center">
                             <a href='Usuario secundario.html' onclick="clickEnFotoDePerfil(event, this)">
@@ -90,7 +90,7 @@ function insertarCajasServicios(contenedor, fila, cont) {
                             
                         </div>
                         <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center" style="margin-top: 10px">
-                            <button class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;" onclick="Comprar(this)">Comprar</button>
+                            <button class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;" onclick="VerInformacionServicio(this)">Ver información</button>
                             <div class="card-price"><span>₡${item.precio}</span></div>
                         </div>
                     </div>
@@ -127,7 +127,26 @@ insertarCajasProductos();
 
 
 
+function VerInformacionServicio(elemento){
+    localStorage.setItem('IDPS', '0');
+    var card = elemento.closest('.card');
+    var cardId = card.id;
+    fetch('http://localhost:3000/getServicios')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(item => {
+                if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
+                    if(item.idServicio+'' === cardId.split('-')[0]){
+                        //Correcciones
+                        //alert('Servicio: ' + item.nombreServicio + '\n' + 'Descripción: ' + item.descripcion + '\n' + 'Precio: ' + item.precio);
+                        showAlert('Servicio: ' + item.nombreServicio + '\n' + 'Descripción: ' + item.descripcion + '\n' + 'Precio: ' + item.precio);
 
+                        return;
+                    }
+                }
+            });
+        });
+};
 
 // Función para la foto de perfil cuando se hace click
 function clickEnFotoDePerfil(event, elemento){
@@ -141,12 +160,10 @@ function clickEnFotoDePerfil(event, elemento){
         .then(data => {
             data.forEach(item => {
                 if(item.idUsuario+'' === idUsuario){
-                    alert(item.idUsuario+'' + ' - ' + localStorage.getItem('idUsuario'));
                     if(item.idUsuario+'' === ''+localStorage.getItem('idUsuario')){
                         window.location.href = './Usuario principal.html';
                         return;
                     }else{
-                        alert('Usuario secundario');
                         localStorage.setItem( 'idUsuario2', item.idUsuario);
                         localStorage.setItem( 'nombre2', item.nombre);
                         localStorage.setItem( 'apellidos2', item.apellidos);
@@ -166,6 +183,7 @@ function clickEnFotoDePerfil(event, elemento){
 
 //funcion para comprar un producto o servicio del BUTTON comprar
 function Comprar(elemento){
+    localStorage.setItem('IDPS', '0');
     var card = elemento.closest('.card');
     var cardId = card.id;
     if(localStorage.getItem('IDPS')==='0'){
@@ -178,9 +196,10 @@ function Comprar(elemento){
                     if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
                         if(item.idProducto+'' === cardId.split('-')[0]){
                             localStorage.setItem( 'esPoS', 'p');
-                            localStorage.setItem( 'IDUSUARIO', item.idUsuario);
-                            localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
-                            localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
+                            localStorage.setItem( 'IDVENDEDOR', item.idUsuario);
+                            localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario);
+                            localStorage.setItem( 'APELLIDOSVENDEDOR', item.apellidos);
+                            localStorage.setItem( 'IMGVENDEDOR', item.imgUsuario);
                             localStorage.setItem( 'IDPS', item.idProducto);
                             localStorage.setItem( 'NOMBREPS', item.nombreProducto);
                             localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
@@ -193,42 +212,33 @@ function Comprar(elemento){
                 });
             })
         }else{ //Si es un servicio, se guarda en el localStorage los datos del servicio
+            /*
             fetch('http://localhost:3000/getServicios')
             .then(response => response.json())
             .then(data => {
                 data.forEach(item => {
                     if (item.idUsuario+'' !== localStorage.getItem('idUsuario')) {
                         if(item.idServicio+'' === cardId.split('-')[0]){
-                            localStorage.setItem( 'esPoS', 's');
-                            localStorage.setItem( 'IDUSUARIO', item.idUsuario);
-                            localStorage.setItem( 'NOMBREVENDEDOR', item.nombreUsuario + ' ' + item.apellidos);
-                            localStorage.setItem( 'IMGPERFIL', item.imgUsuario);
-                            localStorage.setItem( 'IDPS', item.idProducto);
-                            localStorage.setItem( 'NOMBREPS', item.nombreProducto);
-                            localStorage.setItem( 'DESCRIPCIONPS', item.descripcion);
-                            localStorage.setItem( 'PRECIOPS', item.precio);
-                            localStorage.setItem( 'IMGPS', item.imgProducto);
-                            window.location.href = 'InfoProducto.html';
+                            //Correcciones
+                            var servicios = {};
+                            servicios.IDPS = item.idServicio;
+                            servicios.IDCOMPRADOR = localStorage.getItem('idUsuario');
+                            servicios.IDVENDEDOR = item.idUsuario;
+                            servicios.IMGVENDEDOR = item.imgUsuario;
+                            servicios.NOMBREVENDEDOR = item.nombreUsuario;
+                            servicios.APELLIDOSVENDEDOR = item.apellidos;
+                            servicios.IMGPS = item.imgServicio;
+                            servicios.PRECIOPS = item.precio;
+                            setPRODUCTOSCARRITO(servicios);
                             return;
                         }
                     }
                 });
-            })
+            })*/
         }
     }else{
         alert('Maximo un elemento en el carrito')
     }
-};
-
-
-function setAltoContraste(){
-    var stylesheet = document.getElementById('altoContrasteCss');
-    stylesheet.disabled = !stylesheet.disabled;
-    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
-
-    var stylesheet = document.getElementById('altoContrasteIndexCss');
-    stylesheet.disabled = !stylesheet.disabled;
-    localStorage.setItem('ALTOCONTRASTE', stylesheet.disabled ? 0 : 1);
 };
 
 function cerrarSesion(){
@@ -242,5 +252,28 @@ function usuarioPrincipal(){
 
 function abrirCarrito(){
     window.location.href = 'Carrito.html';
+};
+
+
+function setPRODUCTOSCARRITO(nuevoElemento) {
+    var PRODUCTOSCARRITO = localStorage.getItem('PRODUCTOSCARRITO');
+    if (PRODUCTOSCARRITO) {
+        PRODUCTOSCARRITO = JSON.parse(PRODUCTOSCARRITO);  // Convertir la cadena a un arreglo
+        PRODUCTOSCARRITO.push(nuevoElemento);      // Añadir el nuevo elemento al arreglo
+        localStorage.setItem('PRODUCTOSCARRITO', JSON.stringify(PRODUCTOSCARRITO));  // Guardar el arreglo actualizado de nuevo como una cadena en localStorage
+    } else {
+        // Si no hay productos, inicializar con el nuevo elemento
+        localStorage.setItem('PRODUCTOSCARRITO', JSON.stringify([nuevoElemento]));
+    }
+};
+
+function showAlert(message) {
+    document.getElementById('alertText').innerText = message;
+    document.getElementById('customAlert').style.display = 'block';
+    document.getElementById('customAlert').focus(); // Set focus to the alert
 }
 
+function closeAlert() {
+    document.getElementById('customAlert').style.display = 'none';
+    document.querySelector('button').focus(); // Focus back to a button or other element
+}

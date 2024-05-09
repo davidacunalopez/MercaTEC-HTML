@@ -162,6 +162,11 @@
             <div class="col" id="columnder"></div>
         </div>
     </div>
+    <div id="customAlert" role="alertdialog" aria-labelledby="alertTitle" aria-describedby="alertText" style="display:none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1000; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+        <h2 id="alertTitle" style="font-size: 1.5em;">Alerta</h2>
+        <p id="alertText" style="font-size: 1.2em;">Texto de la alerta</p>
+        <button onclick="closeAlert()" style="background-color: blue; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1em;">Cerrar</button>
+      </div>      
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Principal.js"></script>
 </body>

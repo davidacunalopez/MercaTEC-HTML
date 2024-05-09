@@ -39,3 +39,11 @@ function cargarDatos() {
 };
 
 cargarDatos()
+
+function carrito(){
+    window.location.href = 'Carrito.html';
+};
+
+function usuarioPrincipal(){
+    window.location.href = 'Principal.html';
+};

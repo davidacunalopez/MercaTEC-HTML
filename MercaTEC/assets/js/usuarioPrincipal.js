@@ -152,7 +152,6 @@ function insertarCajasServicios(contenedor, fila, cont) {
 cargarDatos();
 
 function funcionEditar(elemento){
-    alert('Editar')
     var idCard = elemento.card.id;
     if(idCard.split('-')[2] === 'p'){
         localStorage.setItem('p_idProducto', idCard.split('-')[0]);
@@ -164,7 +163,6 @@ function funcionEditar(elemento){
 };
 
 function funcionEliminar(elemento){
-    alert('Eliminar')
     var card = elemento.closest('.card')
     var idCard = card.id;
     if(idCard.split('-')[2] === 'p'){
@@ -240,4 +238,8 @@ function historialCompras(event){
 function historialVentas(event){
     event.preventDefault();
     window.location.href = 'HistorialVenta.html';
+};
+
+function verCarrito(){
+    window.location.href = 'Carrito.html';
 };

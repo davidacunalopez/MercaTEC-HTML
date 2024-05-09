@@ -19,30 +19,24 @@
             <div class="navbar-icons"><a href="Usuario%20principal.html"><button class="btn btn-primary" id="btnUsuario" type="button"><i class="far fa-user"></i></button></a><a href="#"><button class="btn btn-primary" id="btnCompra" type="button"><i class="fas fa-shopping-basket"></i></button></a></div>
         </div>
     </nav>
-    <main style="margin-top: 20px; padding-left: 20px;">
-        <div class="d-flex" style="margin-bottom: 20px;"><img class="d-flex" id="imgPerfil" style="border-radius: 100px;width: 100px;height: 100px;margin-right: 20px;">
-            <div>
-                <h5>Vendedor</h5><span id="lblNombreVendedor">Nombre</span>
-            </div>
+    <div class="container" id="containerProducts"></div>
+
+    <div>
+        <div class="buttons-container" style="display: flex; margin: 20px 0; align-items: center;">
+            <button class="btn btn-primary" onclick="regresar()" style="margin-right: 10px; margin-left: 20px;">
+                <i class="fas fa-arrow-left"></i> Regresar
+            </button>
+            <button class="btn btn-danger" onclick="vaciarCarrito()" style="margin-right: 10px;">
+                <i class="fas fa-trash"></i> Vaciar carrito
+            </button>
+            <button class="btn btn-success" onclick="Comprar()">
+                <i class="fas fa-shopping-cart"></i> Comprar
+            </button>
         </div>
-        <hr>
-        <div class="d-lg-flex">
-            <img class="d-flex" id="imgPS" style="width: 200px;height: 200px;margin-right: 10px;border-radius: 10px;">
-            <div>
-                <h5 id="lblNombrePS">Producto</h5>
-                <p id="lblDescripcionPS">Descripción</p>
-                <div class="card-price"><span id="lblPrecioPS">Precio</span></div>
-            </div>
-        </div>
-        <div style="margin-top: 20px;margin-left: 20px;">
-            <button class="btn btn-primary" type="button" id="btnCancelar" onclick="cancelar()">Cancelar</button>
-            <button class="btn btn-primary" type="button" style="margin-left: 10px; margin-right: 10px;" id="btnQuitar" onclick="quitar()">Quitar</button>
-            <button class="btn btn-primary" type="button" style="margin-left: 1px;" id="btnComprar" onclick="comprar()">Comprar</button>
-        </div>
-    </main>
+    </div>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.reflowhq.com/v2/toolkit.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/Carrito.js"></script>
 </body>
 
