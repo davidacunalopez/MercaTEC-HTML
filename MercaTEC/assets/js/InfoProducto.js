@@ -69,3 +69,7 @@ function setPRODUCTOSCARRITO(nuevoElemento) {
         alert('Producto añadido al carrito');
     }
 };
+
+function usuarioPrincipal(){
+    window.location.href = 'Usuario principal.html';
+};

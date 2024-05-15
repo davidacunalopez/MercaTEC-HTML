@@ -133,3 +133,7 @@ function deletePRODUCTOSCARRITO(idProducto) {
         console.log("No hay productos para eliminar.");
     }
 };
+
+function usuarioPrincipal(){
+    window.location.href = 'Usuario principal.html';
+}
