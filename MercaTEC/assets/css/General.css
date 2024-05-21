@@ -91,3 +91,61 @@ body {
   color: #333; /* High contrast text color */
   line-height: 1.5; /* Improved readability */
 }
+
+.card h1 {
+  font-size: 2em; /* Tamaño de fuente más grande para destacar */
+  font-family: 'Georgia', serif; /* Fuente elegante */
+  color: #222; /* Color del texto */
+  margin-bottom: 15px; /* Espaciado inferior para separación */
+  border-bottom: 2px solid #ccc; /* Línea inferior para énfasis */
+  padding-bottom: 5px; /* Espaciado interno inferior */
+}
+
+.card h2 {
+  font-size: 1.2em; /* Ajuste del tamaño de la fuente */
+  font-family: 'Arial', sans-serif; /* Fuente más elegante */
+  color: #333; /* Color del texto */
+  background-color: #f9f9f9; /* Color de fondo suave */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.card h3 {
+  font-size: 0.9em; /* Tamaño de fuente */
+  font-family: 'Verdana', sans-serif; /* Fuente clara y legible */
+  color: #444; /* Color del texto */
+  margin-top: 5px; /* Espaciado superior */
+  margin-bottom: 5px; /* Espaciado inferior */
+  padding: 5px; /* Espaciado interno */
+  border-left: 4px solid #ccc; /* Línea lateral para énfasis */
+  background-color: #f0f0f0; /* Fondo suave */
+  border-radius: 3px; /* Bordes redondeados */
+  display: flex; /* Usar flexbox para alinear con la imagen */
+  align-items: center; /* Alinear verticalmente */
+}
+
+.card button {
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color del texto */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+  font-size: 1.2em; /* Tamaño de fuente */
+}
+
+#_footer {
+  background: #002855;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#_footer ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+#_footer a {
+  color: #ffffff;
+}

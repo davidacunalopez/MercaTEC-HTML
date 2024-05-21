@@ -1,4 +1,4 @@
-.container {
+#indexScreen {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,20 +9,27 @@
   text-align: center;
 }
 
-.container h1 {
+#indexScreen h1 {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   color: white;
   font-size: 120px;
 }
 
-.container p {
+#indexScreen h2 {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+#indexScreen p {
   color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   font-size: 35px;
   padding-bottom: 20px;
 }
 
-.container button {
+#indexScreen button {
   font-weight: bold;
   color: white;
   background-color: var(--bs-tertiary-color);

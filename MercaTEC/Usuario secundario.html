@@ -59,8 +59,22 @@
             <div class="col col-auto" id="columnItems"></div>
         </div>
     </div>
+    <div id="customAlert" role="alertdialog" aria-labelledby="alertTitle" aria-describedby="alertText" style="display:none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1000; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+        <h2 id="alertTitle" style="font-size: 1.5em;">Alerta</h2>
+        <p id="alertText" style="font-size: 1.2em;">Texto de la alerta</p>
+        <button onclick="closeAlert()" style="background-color: blue; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1em;">Cerrar</button>
+    </div>  
+    <footer id="_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/">Instituto Tecnológico de Costa Rica</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Políticas de privacidad</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Cookies</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Reglamento de uso de MercaTEC</a></div>
+            </div>
+        </div>
+    </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script type="module" src="assets/js/usuarioSecundario.js"></script>
+    <script src="assets/js/usuarioSecundario.js"></script>
 </body>
-
 </html>

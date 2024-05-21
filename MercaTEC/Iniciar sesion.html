@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
     <link rel="stylesheet" href="assets/css/Main-Login-Signin.css">
     <link rel="stylesheet" href="assets/css/Projects-Grid-images.css">
-    <link rel="stylesheet" href="assets/css/altoContraste.css" id="altoContrasteCss" disabled>
 </head>
 
 <body>
@@ -41,7 +40,9 @@
                         <div class="card-body d-flex flex-column align-items-center">
                             <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"></path>
-                                </svg></div>
+                                </svg>
+                            </div>
+                            <h1 style="margin-bottom: 20px;">Inicio de Sesión</h1>
                             <form class="text-center" method="post" aria-label="Formulario de inicio de sesión">
                                 <div class="mb-3"><input class="form-control" type="email" id="edCorreo" name="email" placeholder="Correo estudiantil" required aria-required="true"></div>
                                 <div class="mb-3"><input class="form-control" type="password" id="edContrasenna" name="password" placeholder="Contraseña" required aria-required="true"></div>
@@ -58,12 +59,14 @@
         </div>
     </section>
     <footer>
-        <ul class="list-inline" id="footerMain">
-            <li class="list-inline-item"><a href="https://www.tec.ac.cr/">Instituto Tecnológico de Costa Rica</a></li>
-            <li class="list-inline-item"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Políticas de privacidad</a></li>
-            <li class="list-inline-item"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Cookies</a></li>
-            <li class="list-inline-item"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Reglamento de uso de MercaTEC</a></li>
-        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/">Instituto Tecnológico de Costa Rica</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Políticas de privacidad</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Cookies</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Reglamento de uso de MercaTEC</a></div>
+            </div>
+        </div>
     </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/iniciarSesion.js"></script>

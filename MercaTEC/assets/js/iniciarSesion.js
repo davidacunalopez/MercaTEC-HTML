@@ -65,7 +65,6 @@ function cargarDatos() {
     }
 };
 
-
 cargarDatos();
 
 function registrarse(){

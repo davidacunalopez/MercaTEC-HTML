@@ -37,10 +37,10 @@
         </div>
     </nav>
     <main>
-        <div class="container">
+        <div class="container" id="indexScreen">
             <header>
                 <h1>MercaTEC</h1>
-                <p>El mercadito preferido del TEC</p>
+                <h2>El mercadito preferido del TEC</h2>
             </header>
             <div>
                 <button class="btn btn-primary" type="button" aria-label="Iniciar sesión" onclick="iniciarSesion()">Iniciar sesión</button>
@@ -49,14 +49,18 @@
         </div>
     </main>
     <footer>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="https://www.tec.ac.cr/">Instituto Tecnológico de Costa Rica</a></li>
-            <li class="list-inline-item"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Políticas de privacidad</a></li>
-            <li class="list-inline-item"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Cookies</a></li>
-            <li class="list-inline-item"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Reglamento de uso de MercaTEC</a></li>
-        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/">Instituto Tecnológico de Costa Rica</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Políticas de privacidad</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Cookies</a></div>
+                <div class="col-md-3"><a href="https://www.tec.ac.cr/politicas-privacidad-terminos-uso">Reglamento de uso de MercaTEC</a></div>
+            </div>
+        </div>
     </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 </html>
+
+

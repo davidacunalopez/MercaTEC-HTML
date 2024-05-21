@@ -46,8 +46,8 @@ function cargarDatos(){
                         <img src="${item.imgProducto}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                         
                         <div class="d-lg-flex flex-column card-body">
-                            <h5 class="card-title">${item.nombreProducto}</h5>
-                            <p class="card-text">${item.descripcion}</p>
+                            <h1 class="card-title">${item.nombreProducto}</h1>
+                            <h2 class="card-text">Descripción: ${item.descripcion}</h2>
                             <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center">
                                 <div class="card-price"><span>₡${item.precio}</span></div>                   
                             </div>
@@ -104,8 +104,8 @@ function insertarCajasServicios(contenedor, fila, cont) {
                         <img src="${item.imgServicio}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                         
                         <div class="d-lg-flex flex-column card-body">
-                            <h5 class="card-title">${item.nombreServicio}</h5>
-                            <p class="card-text">${item.descripcion}</p>
+                            <h1 class="card-title">${item.nombreServicio}</h1>
+                            <h2 class="card-text">Descripción: ${item.descripcion}</h2>
                             <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center">
                                 <div class="card-price"><span>₡${item.precio}</span></div>                   
                             </div>
@@ -147,7 +147,7 @@ function insertarCajasServicios(contenedor, fila, cont) {
         }
         
     }).catch(error => console.error('Error:', error));
-}
+};
 
 cargarDatos();
 

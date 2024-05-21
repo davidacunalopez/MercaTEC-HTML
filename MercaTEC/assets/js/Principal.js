@@ -27,13 +27,13 @@ function insertarCajasProductos() {
                     <img src="${item.imgProducto}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                     
                     <div class="d-lg-flex flex-column card-body">
-                        <h5 class="card-title">${item.nombreProducto}</h5>
-                        <p class="card-text">${item.descripcion}</p>
+                        <h1 class="card-title">${item.nombreProducto}</h1>
+                        <h2 class="card-text">Descripción: ${item.descripcion}</h2>
                         <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center">
                             <a href='Usuario secundario.html' onclick="clickEnFotoDePerfil(event, this)">
                                 <img src="${item.imgUsuario}" alt="Foto de perfil del usuario" style="border-radius: 100px;width: 60px;height: 60px;margin: 8px;">
                             </a>
-                            <p>${item.nombreUsuario} ${item.apellidos}</p>
+                            <h3>${item.nombreUsuario} ${item.apellidos}</h3>
                             
                         </div>
                         <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center" style="margin-top: 10px">
@@ -80,13 +80,13 @@ function insertarCajasServicios(contenedor, fila, cont) {
                     <img src="${item.imgServicio}" alt="${item.descripcion}" class="card-img-top" style="height: 300px; margin:10px; width:auto; border-radius: 20px">
                     
                     <div class="d-lg-flex flex-column card-body">
-                        <h5 class="card-title">Servicio: ${item.nombreServicio}</h5>
-                        <p class="card-text">${item.descripcion}</p>
+                        <h1 class="card-title">${item.nombreServicio}</h1>
+                        <h2 class="card-text">Descripción: ${item.descripcion}</h2>
                         <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center">
                             <a href='Usuario secundario.html' onclick="clickEnFotoDePerfil(event, this)">
                                 <img src="${item.imgUsuario}" alt="Foto de perfil del usuario" style="border-radius: 100px;width: 60px;height: 60px;margin: 8px;">
                             </a>
-                            <p>${item.nombreUsuario} ${item.apellidos}</p>
+                            <h3>${item.nombreUsuario} ${item.apellidos}</h3>
                             
                         </div>
                         <div class="d-lg-flex flex-row justify-content-lg-start align-items-lg-center" style="margin-top: 10px">
@@ -145,7 +145,8 @@ function VerInformacionServicio(elemento){
                     }
                 }
             });
-        });
+        }
+    );
 };
 
 // Función para la foto de perfil cuando se hace click
