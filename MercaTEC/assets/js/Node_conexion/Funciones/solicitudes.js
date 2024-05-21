@@ -153,11 +153,12 @@ router.get('/getServicios', async (req, res) => {
 router.get('/getProducto/:idProducto', async (req, res) => {
     const { idProducto } = req.params;
     const pool = await getConnection();
-    res.json(result.recordset);
+    
     try {
         const result = await pool.request()
             .input('idProducto', sql.Int, idProducto) // Asegúrate de que el tipo de dato corresponda al tipo en tu base de datos
             .query('SELECT cantidad FROM dbo.Productos WHERE idProducto = @idProducto');
+            res.json(result.recordset);
 
         if (result.rowsAffected[0] > 0) {
             res.status(200).send('Producto eliminado correctamente.');
