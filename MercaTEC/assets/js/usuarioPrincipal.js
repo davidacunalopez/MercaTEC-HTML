@@ -157,6 +157,11 @@ function funcionEditar(elemento){
     var idCard = card.id;
     if(idCard.split('-')[2] === 'p'){
         localStorage.setItem('p_idProducto', idCard.split('-')[0]);
+        localStorage.setItem('nombreProducto', card.querySelector('.card-title').textContent);
+        localStorage.setItem('descripcionProducto', card.querySelector('.card-text').textContent);
+        localStorage.setItem('precioProducto', parseInt(card.querySelector('.card-price span').textContent.split('₡')[1]));
+        alert('precio: ' + localStorage.getItem('precioProducto'));
+        alert('hola');
         window.location.href = 'EditarInfoProdu.html';
     }else{
         localStorage.setItem('s_idServicio', idCard.split('-')[0]);

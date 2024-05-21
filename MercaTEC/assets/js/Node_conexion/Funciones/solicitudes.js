@@ -150,7 +150,12 @@ router.get('/getServicios', async (req, res) => {
     }
 });
 
-
+router.put('/getProducto/:idProducto', async (req, res) => {
+    const { idProducto } = req.params;
+    const pool = await getConnection();
+    const result = await pool.request().query('SELECT cantidad FROM dbo.Productos WHERE idProducto = @idProducto');
+    res.json(result.recordset);
+});
 //--------------------------POSTS--------------------------
 router.post('/setUsuario', async (req, res) => {
     const { nombre, apellidos, correo, numero, contrasenna } = req.body;
