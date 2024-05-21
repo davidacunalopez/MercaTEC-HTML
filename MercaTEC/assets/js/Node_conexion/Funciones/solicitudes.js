@@ -150,11 +150,24 @@ router.get('/getServicios', async (req, res) => {
     }
 });
 
-router.put('/getProducto/:idProducto', async (req, res) => {
+router.get('/getProducto/:idProducto', async (req, res) => {
     const { idProducto } = req.params;
     const pool = await getConnection();
-    const result = await pool.request().query('SELECT cantidad FROM dbo.Productos WHERE idProducto = @idProducto');
     res.json(result.recordset);
+    try {
+        const result = await pool.request()
+            .input('idProducto', sql.Int, idProducto) // Asegúrate de que el tipo de dato corresponda al tipo en tu base de datos
+            .query('SELECT cantidad FROM dbo.Productos WHERE idProducto = @idProducto');
+
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).send('Producto eliminado correctamente.');
+        } else {
+            res.status(404).send('Producto no encontrado.');
+        }
+    } catch (error) {
+        console.error('Error al eliminar el producto:', error);
+        res.status(500).send('Error al eliminar el producto');
+    }
 });
 //--------------------------POSTS--------------------------
 router.post('/setUsuario', async (req, res) => {

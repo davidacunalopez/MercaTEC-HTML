@@ -64,6 +64,9 @@ function setAltoContraste(){
   };
   
 function cargarDatos(){
+    document.getElementById('nombre').value = localStorage.getItem('nombreServicio');
+    document.getElementById('precio').value = localStorage.getItem('precioServicio');
+    document.getElementById('descripcion').value = localStorage.getItem('descripcionServicio');
     if (localStorage.getItem('ALTOCONTRASTE') == 1) {
         var stylesheet = document.getElementById('altoContrasteCss');
         stylesheet.disabled = false;

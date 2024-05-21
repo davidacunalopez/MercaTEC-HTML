@@ -160,11 +160,12 @@ function funcionEditar(elemento){
         localStorage.setItem('nombreProducto', card.querySelector('.card-title').textContent);
         localStorage.setItem('descripcionProducto', card.querySelector('.card-text').textContent);
         localStorage.setItem('precioProducto', parseInt(card.querySelector('.card-price span').textContent.split('₡')[1]));
-        alert('precio: ' + localStorage.getItem('precioProducto'));
-        alert('hola');
         window.location.href = 'EditarInfoProdu.html';
     }else{
         localStorage.setItem('s_idServicio', idCard.split('-')[0]);
+        localStorage.setItem('nombreServicio', card.querySelector('.card-title').textContent);
+        localStorage.setItem('descripcionServicio', card.querySelector('.card-text').textContent);
+        localStorage.setItem('precioServicio', parseInt(card.querySelector('.card-price span').textContent.split('₡')[1]));
         window.location.href = 'EditarInfoServicio.html';
     }
 };

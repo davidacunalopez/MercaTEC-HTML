@@ -64,21 +64,22 @@ function setAltoContraste(){
   };
   
 function cargarDatos(){
-    document.getElementById('nombre').value = localStorage.getItem('nombreProducto');
-    document.getElementById('precio').value = localStorage.getItem('precioProducto');
-    document.getElementById('descripcion').value = localStorage.getItem('descripcionProducto');
-    fetch(`http://localhost:3000/getProducto/${localStorage.getItem('p_idProducto')}`)
-        .then(response => response.json())
-        .then(data => {
-            data.forEach((item, index) => {
-                document.getElementById('cantidad').value = item.cantidad;
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('nombre').value = localStorage.getItem('nombreProducto');
+        document.getElementById('precio').value = localStorage.getItem('precioProducto');
+        document.getElementById('descripcion').value = localStorage.getItem('descripcionProducto');
+        fetch(`http://localhost:3000/getProducto/${localStorage.getItem('p_idProducto')}`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach((item) => { // Removed 'index' from the parameter list
+                    document.getElementById('cantidad').value = item.cantidad;
+                });
+            if (localStorage.getItem('ALTOCONTRASTE') == 1) {
+                var stylesheet = document.getElementById('altoContrasteCss');
+                stylesheet.disabled = false;
             }
-        );
-    if (localStorage.getItem('ALTOCONTRASTE') == 1) {
-        var stylesheet = document.getElementById('altoContrasteCss');
-        stylesheet.disabled = false;
-    }
-}  )};
-
+        });
+    });
+}
 cargarDatos();
 
