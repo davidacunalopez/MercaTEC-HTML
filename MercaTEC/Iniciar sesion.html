@@ -44,14 +44,25 @@
                             </div>
                             <h1 style="margin-bottom: 20px;">Inicio de Sesión</h1>
                             <form class="text-center" method="post" aria-label="Formulario de inicio de sesión">
-                                <div class="mb-3"><input class="form-control" type="email" id="edCorreo" name="email" placeholder="Correo estudiantil" required aria-required="true"></div>
-                                <div class="mb-3"><input class="form-control" type="password" id="edContrasenna" name="password" placeholder="Contraseña" required aria-required="true"></div>
                                 <div class="mb-3">
-                                    <label id="lblAlerta" class="visually-hidden">Alertas de acceso</label>
+                                    <input class="form-control" type="email" id="edCorreo" name="email" placeholder="Correo estudiantil" required aria-required="true">
                                 </div>
-                                <div class="mb-3"><button class="btn btn-primary d-block w-100" id="btnIniciarSesion" type="submit">Iniciar sesión</button></div>
+                                <div class="mb-3">
+                                    <input class="form-control" type="password" id="edContrasenna" name="password" placeholder="Contraseña" required aria-required="true">
+                                </div>
+                                
+                                <!-- Aquí está el mensaje de alerta -->
+                                <div class="mb-3">
+                                    <label id="lblAlerta" class="alert alert-danger" role="alert" style="display: none;">
+                                        Las credenciales no son válidas. Por favor, inténtelo de nuevo.
+                                    </label>
+                                </div>
+                            
+                                <div class="mb-3">
+                                    <button class="btn btn-primary d-block w-100" id="btnIniciarSesion" type="button" onclick="validarCredenciales()">Iniciar sesión</button>
+                                </div>
                                 <p class="text-muted">¿Tienes problemas para iniciar sesión?</p>
-                            </form>
+                            </form>                            
                         </div>
                     </div>
                 </div>

@@ -238,7 +238,7 @@ function Comprar(elemento){
             })*/
         }
     }else{
-        alert('Maximo un elemento en el carrito')
+        //alert('Maximo un elemento en el carrito')
     }
 };
 
