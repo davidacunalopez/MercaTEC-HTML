@@ -68,6 +68,7 @@ function cargarDatos(){
     document.getElementById('nombre').value = localStorage.getItem('nombreProducto');
     document.getElementById('precio').value = localStorage.getItem('precioProducto');
     document.getElementById('descripcion').value = localStorage.getItem('descripcionProducto');
+    document.getElementById('cantidad').value = 1;
     /*
     fetch(`http://localhost:3000/getProducto/${localStorage.getItem('p_idProducto')}`)
         .then(response => response.json())

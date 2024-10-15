@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
       event.preventDefault(); // Evita que el formulario se envíe
   
       //Se valida si hay espacios vacios
-      if (ednombreProducto === '' || edCantidad.value.trim()==='' || edPrecio.value.trim()==='' ||
+      if (ednombreProducto.value.trim() === '' || edCantidad.value.trim()==='' || edPrecio.value.trim()==='' ||
       edDescripcion.value.trim()==='') {
         // El campo está vacío, muestra un mensaje
         alert('Hay espacios vacíos.');
